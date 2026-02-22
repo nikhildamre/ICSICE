@@ -1,18 +1,45 @@
 // ICSICE Conference Website Components
 
-// Mobile hamburger menu toggle function
-function toggleMobileMenu() {
-    const navigation = document.querySelector('.main-navigation');
-    const hamburger = document.querySelector('.mobile-menu-toggle');
+// Clean mobile menu toggle function - GLOBAL
+function toggleMenu() {
+    console.log("Toggle clicked");
+    const nav = document.querySelector('.main-navigation');
+    const toggle = document.querySelector('.mobile-menu-toggle');
     
-    // Toggle the mobile menu
-    if (navigation.classList.contains('mobile-menu-open')) {
-        navigation.classList.remove('mobile-menu-open');
-        hamburger.classList.remove('active');
-    } else {
-        navigation.classList.add('mobile-menu-open');
-        hamburger.classList.add('active');
+    console.log("Nav found:", !!nav);
+    console.log("Toggle found:", !!toggle);
+    
+    if (!nav || !toggle) {
+        console.log("Nav or toggle not found");
+        return;
     }
+    
+    // Check current state
+    const isOpen = nav.classList.contains('mobile-menu-open');
+    console.log("Menu currently open:", isOpen);
+    
+    if (isOpen) {
+        // Close menu
+        nav.classList.remove('mobile-menu-open');
+        toggle.classList.remove('active');
+        console.log("Menu closed");
+    } else {
+        // Open menu
+        nav.classList.add('mobile-menu-open');
+        toggle.classList.add('active');
+        console.log("Menu opened");
+    }
+    
+    // Verify final state
+    console.log("Final state - Nav has mobile-menu-open:", nav.classList.contains('mobile-menu-open'));
+    
+    // DEBUG: Check computed styles
+    const computedStyle = window.getComputedStyle(nav);
+    console.log("Computed display:", computedStyle.display);
+    console.log("Computed visibility:", computedStyle.visibility);
+    console.log("Computed opacity:", computedStyle.opacity);
+    console.log("Computed position:", computedStyle.position);
+    console.log("Computed z-index:", computedStyle.zIndex);
 }
 
 // Header HTML template
@@ -83,7 +110,7 @@ const headerHTML = `
             </nav>
             
             <!-- Mobile Hamburger Menu Button -->
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -171,8 +198,12 @@ const ICSICE = {
         this.loadHeaderFooter();
         this.setupNavigation();
         this.setupAnimations();
-        this.setupMobileMenu();
-        this.setupActiveNavigation();
+        
+        // Setup mobile menu after a short delay to ensure header is injected
+        setTimeout(() => {
+            this.setupMobileMenu();
+            this.setupActiveNavigation();
+        }, 150);
     },
     
     // Load header and footer
@@ -182,6 +213,7 @@ const ICSICE = {
         
         if (headerElement) {
             headerElement.innerHTML = headerHTML;
+            console.log("Header injected");
         }
         
         if (footerElement) {
@@ -207,32 +239,34 @@ const ICSICE = {
     
     // Mobile menu setup
     setupMobileMenu: function() {
+        // This function is called AFTER header injection, so elements should exist
+        const hamburger = document.querySelector('.mobile-menu-toggle');
+        const navigation = document.querySelector('.main-navigation');
+        
+        if (!hamburger || !navigation) {
+            console.log("Mobile menu elements not found in setupMobileMenu");
+            return;
+        }
+        
         // Close mobile menu when clicking on a navigation link
         const navLinks = document.querySelectorAll('.navbar-box');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                const navigation = document.querySelector('.main-navigation');
-                const hamburger = document.querySelector('.mobile-menu-toggle');
-                if (navigation && hamburger) {
-                    navigation.classList.remove('mobile-menu-open');
-                    hamburger.classList.remove('active');
-                }
+                navigation.classList.remove('mobile-menu-open');
+                hamburger.classList.remove('active');
+                console.log("Menu closed by nav link click");
             });
         });
         
-        // Close mobile menu when clicking outside
+        // Close mobile menu when clicking outside (but NOT on hamburger)
         document.addEventListener('click', function(event) {
-            const navigation = document.querySelector('.main-navigation');
-            const hamburger = document.querySelector('.mobile-menu-toggle');
+            const isClickInsideNav = navigation.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
             
-            if (navigation && hamburger) {
-                const isClickInsideNav = navigation.contains(event.target);
-                const isClickOnHamburger = hamburger.contains(event.target);
-                
-                if (!isClickInsideNav && !isClickOnHamburger && navigation.classList.contains('mobile-menu-open')) {
-                    navigation.classList.remove('mobile-menu-open');
-                    hamburger.classList.remove('active');
-                }
+            if (!isClickInsideNav && !isClickOnHamburger && navigation.classList.contains('mobile-menu-open')) {
+                navigation.classList.remove('mobile-menu-open');
+                hamburger.classList.remove('active');
+                console.log("Menu closed by outside click");
             }
         });
     },
@@ -289,23 +323,10 @@ const ICSICE = {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM loaded, initializing ICSICE...");
     ICSICE.init();
     
-    // Handle hamburger menu animation
-    const hamburger = document.querySelector('.mobile-menu-toggle');
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const spans = this.querySelectorAll('span');
-            if (this.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-    }
+    // Make toggleMenu globally available
+    window.toggleMenu = toggleMenu;
+    console.log("toggleMenu made global");
 });
