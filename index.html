@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICSICE - 4th International Conference on Sustainability Innovation in Computing and Engineering</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Home Page Specific Styles -->
+    <style>
+        /* Top Header Bar Styling */
+        .top-header-bar {
+            background: #1552ca;
+            color: white;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100000;
+        }
+
+        .top-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 95%;
+            width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .college-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .college-logo {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .college-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .college-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .college-subtitle {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #ccebff;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links span {
+            font-size: 0.9rem;
+            margin-right: 10px;
+            color: #ccebff;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+
+        /* Main Navigation Bar */
+        .header-two {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 80px;
+            z-index: 99999;
+        }
+
+        .menu-two {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            max-width: 95%;
+            width: 95%;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .logo-wrap .site-title a {
+            color: #1552ca !important;
+            font-size: 2rem !important;
+            font-weight: 700 !important;
+            text-decoration: none !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        .logo-wrap .site-title a:hover {
+            color: #0d3d8a !important;
+        }
+
+        /* Hero Banner Section */
+        .hero-banner {
+            min-height: 500px;
+            background-image: url('assets/PROFILE.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            text-align: center;
+            color: white;
+            line-height: 1.2;
+            margin: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-title .title-line-1 {
+            font-family: 'Arial','Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            display: block;
+            color: white;
+            margin-bottom: 5px;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-title .title-line-2 {
+            font-family: 'Arial', 'Open Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            display: block;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-title .conference-name {
+            font-family: 'Arial', 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            display: block;
+            margin: 20px 0;
+            color: white;
+            letter-spacing: 4px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+        }
+
+        .hero-title .mode {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            display: block;
+            color: white;
+            margin: 15px 0;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .hero-title sup {
+            font-size: 0.6em;
+            font-weight: 300;
+            vertical-align: super;
+        }
+
+        .hero-description {
+            color: #ffffff;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .hero-description .proceedings {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            display: block;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .hero-description .dates {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        /* Publishers Section */
+        .publishers-section {
+            text-align: center;
+            padding: 50px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .publishers-title {
+            color: #1552ca;
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .logo-item {
+            text-align: center;
+            width: 200px;
+            height: 180px;
+            padding: 25px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(21, 82, 202, 0.2);
+        }
+
+        .logo-item .logo-image-container {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(0%);
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-item p {
+            font-weight: 600;
+            color: #1552ca;
+            font-size: 1.1rem;
+            margin: 0;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Content Sections */
+        .content-container {
+            max-width: 95%;
+            width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section {
+            display: flex;
+            gap: 40px;
+            margin: 40px 0;
+            align-items: center;
+        }
+
+        .content-section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        .content-section.reverse .content-text {
+            padding-right: 0;
+            padding-left: 30px;
+        }
+
+        .content-image {
+            flex: 0 0 500px;
+            max-width: 500px;
+            margin-left: 40px;
+        }
+
+        .content-section.reverse .content-image {
+            margin-left: 0;
+            margin-right: 40px;
+        }
+
+        .content-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .content-image img:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #1552ca;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+
+        /* Tables */
+        .table-container {
+            margin: 40px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        .table-title {
+            background: linear-gradient(135deg, #1552ca 0%, #0d3d8a 100%);
+            color: white;
+            padding: 20px;
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #1552ca;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 2px solid #1552ca;
+            border-right: 1px solid #dee2e6;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table th:last-child {
+            border-right: none;
+        }
+
+        .data-table td {
+            padding: 16px 15px;
+            border-bottom: 1px solid #e9ecef;
+            border-right: 1px solid #f1f3f4;
+            color: #333;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            vertical-align: top;
+        }
+
+        .data-table td:last-child {
+            border-right: none;
+        }
+
+        .data-table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        .data-table tbody tr:hover {
+            background-color: #f8f9ff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(21, 82, 202, 0.1);
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Special styling for fee amounts */
+        .data-table td:contains("INR"),
+        .data-table td:contains("USD") {
+            font-weight: 600;
+            color: #1552ca;
+        }
+
+        /* Special styling for important dates */
+        .data-table .important-date {
+            font-weight: 700;
+            color: #1552ca;
+            font-size: 1.1rem;
+        }
+
+        /* Alternating row colors for better readability */
+        .data-table tbody tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        .data-table tbody tr:nth-child(even):hover {
+            background-color: #f0f4ff;
+        }
+
+        /* Category column styling */
+        .data-table td:first-child {
+            font-weight: 600;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            border-right: 2px solid #1552ca;
+        }
+
+        .data-table tbody tr:hover td:first-child {
+            background-color: #e3f2fd;
+        }
+
+        /* Mobile Responsiveness for Header */
+        @media (max-width: 768px) {
+            .top-header-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                padding: 10px;
+            }
+            
+            .college-info {
+                justify-content: center;
+            }
+            
+            .college-logo {
+                height: 50px;
+            }
+            
+            .college-name {
+                font-size: 0.9rem;
+            }
+            
+            .college-subtitle {
+                font-size: 0.75rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .social-links span {
+                display: none;
+            }
+            
+            .header-two {
+                top: 100px;
+            }
+            
+            .logo-wrap .site-title a {
+                font-size: 1.5rem !important;
+            }
+
+            .hero-title .title-line-1,
+            .hero-title .title-line-2 {
+                font-size: 1.4rem;
+            }
+
+            .hero-title .conference-name {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-title .mode {
+                font-size: 1.2rem;
+            }
+
+            .hero-description .dates {
+                font-size: 1.2rem;
+            }
+
+            .logos-container {
+                gap: 30px;
+            }
+
+            .logo-item {
+                width: 100%;
+                max-width: 250px;
+                height: 160px;
+            }
+
+            .logo-item .logo-image-container {
+                height: 80px;
+            }
+
+            .content-section,
+            .content-section.reverse {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .content-image {
+                flex: none;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .content-image img {
+                height: 280px;
+            }
+
+            .content-text,
+            .content-section.reverse .content-text {
+                padding: 0;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .data-table {
+                font-size: 13px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 12px 10px;
+            }
+
+            .data-table th {
+                font-size: 0.85rem;
+            }
+
+            .table-title {
+                font-size: 1.3rem;
+                padding: 15px;
+            }
+
+            .table-container {
+                margin: 30px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title .title-line-1,
+            .hero-title .title-line-2 {
+                font-size: 1.1rem;
+            }
+
+            .hero-title .conference-name {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-title .mode {
+                font-size: 1rem;
+            }
+
+            .hero-description .dates {
+                font-size: 1rem;
+            }
+
+            .publishers-title {
+                font-size: 1.4rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .data-table {
+                font-size: 11px;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 10px 6px;
+            }
+
+            .data-table th {
+                font-size: 0.75rem;
+            }
+
+            .table-title {
+                font-size: 1.1rem;
+                padding: 12px;
+            }
+
+            .table-container {
+                margin: 20px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page" class="site-wrapper">
+        <header id="header"></header>
+
+        <main id="primary" class="site-main">
+            <!-- Hero Banner Section -->
+            <section class="hero-banner">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line-1">4<sup>th</sup> INTERNATIONAL CONFERENCE ON SUSTAINABILITY</span>
+                        <span class="title-line-2">INNOVATION IN COMPUTING AND ENGINEERING</span>
+                        <span class="conference-name">ICSICE- 2026</span>
+                        <span class="mode">MODE: ONLINE/OFFLINE</span>
+                    </h1>
+                    <div class="hero-description">
+                        <span class="proceedings">Open Access Conference Proceedings</span>
+                        <span class="dates">April 17<sup>th</sup> & 18<sup>th</sup>, 2026</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publishers Section -->
+            <section class="publishers-section">
+                <h3 class="publishers-title">Selected Papers will be Published in</h3>
+                <div class="logos-container">
+                    <div class="logo-item">
+                        <div class="logo-image-container">
+                            <img src="assets/gallery/Scopus logo.png" alt="Scopus">
+                        </div>
+                        <p>Scopus</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-image-container">
+                            <img src="assets/gallery/Wiley Logo.png" alt="Wiley">
+                        </div>
+                        <p>Wiley</p>
+                    </div>
+                    <div class="logo-item">
+                        <div class="logo-image-container">
+                            <img src="assets/gallery/IGI Global logo.png" alt="IGI Global">
+                        </div>
+                        <p>IGI Global</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <div class="content-container">
+                <!-- About the College Section -->
+                <section class="content-section">
+                    <div class="content-text">
+                        <h2 class="section-title">About the College</h2>
+                        <div class="section-text">
+                            <p>Vasantdada Patil Pratishthan's College of Engineering & Visual Arts (VPPCOEVA) formerly known as Padmabhushan Vasantdada Patil Pratishthan's College of Engineering (PVPPCOE) is one of the top private Engineering Colleges in Mumbai. VPPCOEVA was established in 1990 as a humble tribute to Late Shri Padmabhushan Vasantdada Patil, by the great founder Late Shri Manohar (Mama) Phalke, Ex M.L.C. and Labour Leader, who took over the task of accomplishing Vasantdada's dreams of scattering Engineering education and providing top class higher education facility to greater number of promising students in science and technology.</p>
+                            
+                            <p>The College is approved by All India Council for Technical Education (AICTE), New Delhi, Directorate of Technical Education (DTE) and Directorate of Art (DOA). VPPCOEVA is accredited for five years from March 2019 – March 2024 by the National Accreditation and Assessment Council (NAAC), India in recognition of its excellent quality profile. Computer Engineering and Information Technology programs of the Institute were accredited by National Board of Accreditation (NBA) for 3 years w.e.f. April 03, 2024.</p>
+                        </div>
+                    </div>
+                    <div class="content-image">
+                        <img src="assets/gallery/photo1.jpg" alt="About College">
+                    </div>
+                </section>
+
+                <!-- About the Department Section -->
+                <section class="content-section reverse">
+                    <div class="content-text">
+                        <h2 class="section-title">About the Department</h2>
+                        <div class="section-text">
+                            <p>The Computer Engineering Department, headed by Dr. Rais A. Mulla, offers a strong academic environment supported by well-qualified and dedicated faculty members. All faculty hold M.E./M.Tech degrees with Distinction or First Class, and several are pursuing Ph.D. programs in emerging technologies. Faculty and lab staff continuously motivate students to enhance technical skills, teamwork, and career readiness.</p>
+                            
+                            <p>The department is NBA accredited, reflecting its commitment to academic excellence and continuous improvement. To bridge the industry–academia gap, the department collaborates with reputed organizations such as EC Council, Blocklogy, and Ekeeda Pvt. Ltd., and offers specialized training in Cyber Security, Ethical Hacking, and Digital Forensics.</p>
+                            
+                            <p>The curriculum provides a strong theoretical foundation and hands-on experience in areas including Advanced Operating Systems, Soft Computing, Big Data Analytics, Data Science, Distributed Computing, and Image Processing. Regular workshops, seminars, expert lectures, industrial visits, technical festivals, and competitions enhance student learning.</p>
+                            
+                            <p>Students are well-trained for placements, resulting in successful careers in reputed industries and higher studies abroad. They also benefit from online platforms like SWAYAM-NPTEL and Infosys Springboard. Active participation in academics, research, cultural activities, sports, and departmental societies helps students excel holistically.</p>
+                        </div>
+                    </div>
+                    <div class="content-image">
+                        <img src="assets/gallery/photo2.jpg" alt="About Department">
+                    </div>
+                </section>
+
+                <!-- About the Conference Section -->
+                <section class="content-section">
+                    <div class="content-text">
+                        <h2 class="section-title">About the Conference</h2>
+                        <div class="section-text">
+                            <p>4<sup>th</sup> International Conference on Sustainability Innovation in Computing and Engineering is a distinguished event that brings together leading experts, researchers, practitioners, and innovators to explore the transformative role of computing and engineering in advancing sustainable solutions. In today's world, where environmental challenges are intensifying, the need for technological innovation in addressing sustainability issues has never been more urgent. This conference serves as a dynamic platform for sharing groundbreaking research, showcasing innovative technologies, and fostering cross-disciplinary collaborations to accelerate sustainable development.</p>
+                            
+                            <p>With a focus on integrating sustainability into the core of computing and engineering practices, this conference will delve into a wide array of topics such as sustainable computing technologies, energy-efficient systems, green engineering practices, and the role of data science in promoting sustainability. It will also highlight the latest advancements in areas like artificial intelligence, smart systems, and digital solutions that contribute to environmental stewardship and social equity.</p>
+                            
+                            <p>The conference aims to bridge the gap between theoretical research and practical application, empowering participants to develop actionable strategies and innovative solutions that can be deployed in real-world scenarios. By facilitating robust discussions and knowledge exchange, the conference seeks to inspire new ideas, foster collaboration, and catalyze the development of technologies that not only enhance efficiency and performance but also contribute to a more sustainable future. It is an honor to host a gathering of visionary leaders in computing and engineering, whose expertise and insights will guide the global movement toward a greener, more sustainable world.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Registration Fee Details Table -->
+                <section class="table-container">
+                    <h2 class="table-title">Registration Fee Details</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Early Registration (10.04.2026) From India</th>
+                                <th>Registration Fee (11.04.2026) From India</th>
+                                <th>Early Registration (10.04.2026) From other countries</th>
+                                <th>Registration Fee (11.04.2026) From other countries</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Authors / Research Scholars</td>
+                                <td>INR 12,000</td>
+                                <td>INR 13,000</td>
+                                <td>USD 133.27</td>
+                                <td>USD 144.38</td>
+                            </tr>
+                            <tr>
+                                <td>Invited Presentation (Only for presentation not for Publication)</td>
+                                <td>INR 5,000</td>
+                                <td>INR 5,500</td>
+                                <td>USD 55.53</td>
+                                <td>USD 61.08</td>
+                            </tr>
+                            <tr>
+                                <td>Student Authors (UG / PG)</td>
+                                <td>INR 11,500</td>
+                                <td>INR 12,000</td>
+                                <td>USD 127.72</td>
+                                <td>USD 133.27</td>
+                            </tr>
+                            <tr>
+                                <td>Conference Attendee / Listener</td>
+                                <td>INR 3,000</td>
+                                <td>INR 4,000</td>
+                                <td>USD 33.32</td>
+                                <td>USD 44.42</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Important Dates Table -->
+                <section class="table-container">
+                    <h2 class="table-title">Important Dates</h2>
+                    <table class="data-table">
+                        <tbody>
+                            <tr>
+                                <td><strong>Submission Open:</strong></td>
+                                <td>16/10/2025</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Submission Deadline:</strong></td>
+                                <td>31/03/2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Acceptance Notification:</strong></td>
+                                <td>02/04/2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Registration Closes:</strong></td>
+                                <td>10/04/2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Main Conference Event:</strong></td>
+                                <td><span class="important-date">17th & 18th April, 2026</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+    </div>
+
+    <script>
+        // Force cache refresh
+        const timestamp = new Date().getTime();
+        console.log('Loading components at:', timestamp);
+    </script>
+    <script src="js/components.js?v=3.2"></script>
+</body>
+</html>

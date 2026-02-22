@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope of Papers - ICSICE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Scope of Papers Specific Styles */
+        .scope-header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background: #f5f7fa;
+            color: #333;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .scope-header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .scope-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 0;
+            color: #1552ca;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+        
+        .scope-header p {
+            font-size: 1rem;
+            color: #666;
+            margin: 15px auto 0 auto;
+            line-height: 1.5;
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        /* Track Section - Fully Responsive Design */
+        .track-section {
+            background: #f5f7fa;
+            padding: 20px 0 40px 0;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .track-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            box-sizing: border-box;
+            justify-items: center;
+            place-content: center;
+        }
+        
+        .track-box {
+            background: #ffffff;
+            border: 2px solid #4a90e2;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            min-height: 400px;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+        
+        .track-box:hover {
+            box-shadow: 0 4px 16px rgba(74, 144, 226, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .track-box h3 {
+            color: #4a90e2;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #4a90e2;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        .track-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .track-box ul li {
+            padding: 8px 0 8px 20px;
+            font-size: 0.9rem;
+            color: #555;
+            position: relative;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .track-box ul li::before {
+            content: '•';
+            color: #4a90e2;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+        
+        .track-box ul li:hover {
+            color: #4a90e2;
+        }
+        
+        /* Responsive Breakpoints */
+        /* Large Tablets and Small Desktops */
+        @media (max-width: 1024px) {
+            .track-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 0 15px;
+                justify-items: center;
+                place-content: center;
+            }
+            
+            .track-box {
+                padding: 20px;
+                max-width: 450px;
+            }
+            
+            .track-box h3 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Tablets */
+        @media (max-width: 768px) {
+            .track-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 15px;
+                justify-items: center;
+                place-content: center;
+            }
+            
+            .track-section {
+                padding: 15px 0 30px 0;
+            }
+            
+            .track-box {
+                padding: 20px;
+                min-height: auto;
+                margin-bottom: 15px;
+                max-width: 600px;
+            }
+            
+            .track-box h3 {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+            
+            .track-box ul li {
+                font-size: 0.85rem;
+                padding: 6px 0 6px 18px;
+                line-height: 1.4;
+            }
+            
+            /* Page title adjustments */
+            .scope-header {
+                padding: 15px 10px;
+            }
+            
+            .scope-header .container {
+                padding: 0 15px;
+            }
+            
+            .scope-header h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .scope-header p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+        }
+        
+        /* Mobile Phones */
+        @media (max-width: 480px) {
+            .track-container {
+                padding: 0 10px;
+                gap: 15px;
+            }
+            
+            .track-section {
+                padding: 10px 0 25px 0;
+            }
+            
+            .track-box {
+                padding: 15px;
+                border-radius: 8px;
+            }
+            
+            .track-box h3 {
+                font-size: 1rem;
+                margin-bottom: 12px;
+                padding-bottom: 8px;
+            }
+            
+            .track-box ul li {
+                font-size: 0.8rem;
+                padding: 5px 0 5px 16px;
+                line-height: 1.3;
+            }
+            
+            .track-box ul li::before {
+                top: 5px;
+            }
+            
+            /* Mobile page title */
+            .scope-header h1 {
+                font-size: 1.6rem;
+                padding: 0 10px;
+            }
+            
+            .scope-header p {
+                font-size: 0.85rem;
+                padding: 0 10px;
+            }
+            
+            .scope-header {
+                padding: 10px 5px;
+            }
+        }
+        
+        /* Extra Small Mobile */
+        @media (max-width: 320px) {
+            .track-container {
+                padding: 0 8px;
+            }
+            
+            .track-box {
+                padding: 12px;
+            }
+            
+            .track-box h3 {
+                font-size: 0.9rem;
+            }
+            
+            .track-box ul li {
+                font-size: 0.75rem;
+            }
+            
+            .scope-header h1 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Ensure no horizontal overflow */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="page" class="site-wrapper">
+        <header id="header"></header>
+
+        <main id="primary" class="site-main">
+            <!-- Page Header -->
+            <div class="scope-header">
+                <div class="container">
+                    <h1>Scope of Papers</h1>
+                    <p>(The accepted paper will submit for scopus evaluation, final decision will be decided by scopus the time duration is 8-10 months after submission)</p>
+                </div>
+            </div>
+
+            <!-- Track Section -->
+            <div class="track-section">
+                <div class="track-container">
+                    <!-- TRACK 1 -->
+                    <div class="track-box">
+                        <h3>Track 1: Green Computing & Sustainable Software</h3>
+                        <ul>
+                            <li>Green Computing Paradigms for Sustainable Software Development.</li>
+                            <li>Energy-Efficient Machine Learning Algorithms for Edge Computing.</li>
+                            <li>Energy-Aware Networking Protocols for Data Centers.</li>
+                            <li>Sustainable Cloud Computing Models for Reducing Carbon Footprint.</li>
+                            <li>Energy-Efficient Data Compression Techniques for IoT Devices.</li>
+                            <li>Quantum Computing Applications in Green Data Processing.</li>
+                            <li>Energy-Aware Software Engineering for Mobile Applications.</li>
+                        </ul>
+                    </div>
+
+                    <!-- TRACK 2 -->
+                    <div class="track-box">
+                        <h3>Track 2: IoT, Sensors & Smart Systems</h3>
+                        <ul>
+                            <li>Smart Grid Technologies for Efficient Energy Management in Smart Cities.</li>
+                            <li>Low-Power IoT Architectures for Sustainable Environmental Monitoring.</li>
+                            <li>Cyber-Physical Systems for Waste Management Optimization.</li>
+                            <li>Smart Agriculture: IoT and AI Solutions for Sustainable Farming.</li>
+                            <li>5G-Enabled Sustainable Communication Systems for Remote Areas.</li>
+                            <li>Sustainable Design of Embedded Systems for Environmental Monitoring.</li>
+                            <li>Wearable Sensors for Health Monitoring: Low-Energy Design Strategies.</li>
+                            <li>AI-Powered Water Quality Monitoring Systems for Environmental Conservation.</li>
+                            <li>Digital Twin Technology for Smart and Sustainable Manufacturing.</li>
+                            <li>Designing Energy-Harvesting Circuits for Self-Powered IoT Devices.</li>
+                            <li>Smart Sensors for Green Building Energy Management Systems.</li>
+                            <li>Edge AI Solutions for Real-Time Environmental Data Processing.</li>
+                        </ul>
+                    </div>
+
+                    <!-- TRACK 3 -->
+                    <div class="track-box">
+                        <h3>Track 3: AI, Blockchain & Emerging Technologies</h3>
+                        <ul>
+                            <li>AI-Driven Predictive Maintenance for Renewable Energy Systems.</li>
+                            <li>Blockchain Applications in Sustainable Supply Chain Management.</li>
+                            <li>Blockchain and IoT for Secure and Transparent Energy Trading.</li>
+                            <li>Renewable Energy Forecasting using Deep Learning Techniques.</li>
+                            <li>Digital Signal Processing Techniques for Renewable Energy Optimization.</li>
+                            <li>Low-Energy Blockchain Frameworks for IoT in Smart Cities.</li>
+                            <li>Smart City Technologies and Integrated Digital Infrastructure.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+    </div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

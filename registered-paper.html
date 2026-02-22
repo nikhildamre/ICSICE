@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Papers - ICSICE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Registered Papers Specific Styles */
+        .papers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .papers-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .papers-badge {
+            display: inline-block;
+            background: #1552ca;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .papers-header h1 {
+            color: #121f3b;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .papers-header h1 i {
+            color: #1552ca;
+            margin-right: 15px;
+        }
+        
+        .papers-header p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .main-content-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .decorative-element {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #4ab8ff 0%, #1552ca 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .coming-soon-section {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+        
+        .coming-soon-card {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .coming-soon-card i {
+            font-size: 80px;
+            color: #1552ca;
+            margin-bottom: 25px;
+            display: block;
+        }
+        
+        .coming-soon-card h2 {
+            color: #121f3b;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .coming-soon-card p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .coming-soon-card .stay-tuned {
+            color: #1552ca;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #1552ca;
+        }
+        
+        .info-card.second {
+            border-left-color: #4ab8ff;
+        }
+        
+        .info-card.third {
+            border-left-color: #0056c8;
+        }
+        
+        .info-card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .info-card .info-card-icon {
+            background: #1552ca;
+        }
+        
+        .info-card.second .info-card-icon {
+            background: #4ab8ff;
+        }
+        
+        .info-card.third .info-card-icon {
+            background: #0056c8;
+        }
+        
+        .info-card-icon i {
+            color: #fff;
+            font-size: 22px;
+        }
+        
+        .info-card h4 {
+            color: #121f3b;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .info-card p {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .papers-container {
+                padding: 40px 15px;
+            }
+            
+            .papers-header h1 {
+                font-size: 28px;
+            }
+            
+            .papers-header p {
+                font-size: 16px;
+            }
+            
+            .main-content-card {
+                padding: 30px 20px;
+            }
+            
+            .coming-soon-section {
+                padding: 40px 15px;
+            }
+            
+            .coming-soon-card {
+                padding: 30px 20px;
+            }
+            
+            .coming-soon-card i {
+                font-size: 60px;
+            }
+            
+            .coming-soon-card h2 {
+                font-size: 24px;
+            }
+            
+            .coming-soon-card p {
+                font-size: 16px;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 30px;
+            }
+            
+            .info-card {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .papers-container {
+                padding: 30px 10px;
+            }
+            
+            .papers-header h1 {
+                font-size: 24px;
+            }
+            
+            .papers-header h1 i {
+                margin-right: 10px;
+            }
+            
+            .papers-header p {
+                font-size: 14px;
+            }
+            
+            .papers-badge {
+                padding: 6px 20px;
+                font-size: 12px;
+            }
+            
+            .main-content-card {
+                padding: 25px 15px;
+            }
+            
+            .coming-soon-section {
+                padding: 30px 10px;
+            }
+            
+            .coming-soon-card {
+                padding: 25px 15px;
+            }
+            
+            .coming-soon-card i {
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
+            
+            .coming-soon-card h2 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .coming-soon-card p {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            
+            .coming-soon-card .stay-tuned {
+                font-size: 14px;
+            }
+            
+            .info-card {
+                padding: 18px;
+            }
+            
+            .info-card h4 {
+                font-size: 16px;
+            }
+            
+            .info-card p {
+                font-size: 14px;
+            }
+            
+            .info-card-icon {
+                width: 45px !important;
+                height: 45px !important;
+            }
+            
+            .info-card-icon i {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page" class="site-wrapper">
+        <header id="header"></header>
+
+        <main id="primary" class="site-main">
+            <div class="papers-container">
+                <!-- Page Header -->
+                <div class="papers-header">
+                    <div class="papers-badge">REGISTERED PAPERS</div>
+                    <h1>
+                        <i class="fa fa-file-text"></i>Registered Paper List
+                    </h1>
+                    <p>View all papers that have been successfully registered for ICSICE-2026</p>
+                </div>
+
+                <!-- Main Content Card -->
+                <div class="main-content-card">
+                    <!-- Decorative Element -->
+                    <div class="decorative-element"></div>
+
+                    <!-- Coming Soon Section -->
+                    <div class="coming-soon-section">
+                        <div class="coming-soon-card">
+                            <i class="fa fa-clock"></i>
+                            <h2>Coming Soon</h2>
+                            <p>The list of registered papers will be published here once the registration period begins.</p>
+                            <p class="stay-tuned">Stay tuned for updates!</p>
+                        </div>
+
+                        <!-- Information Cards -->
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <div class="info-card-icon">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                                <h4>Registration Status</h4>
+                                <p>Papers will appear here after successful registration and payment confirmation</p>
+                            </div>
+
+                            <div class="info-card second">
+                                <div class="info-card-icon">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                                <h4>Search & Filter</h4>
+                                <p>Once published, you'll be able to search papers by title, author, or category</p>
+                            </div>
+
+                            <div class="info-card third">
+                                <div class="info-card-icon">
+                                    <i class="fa fa-download"></i>
+                                </div>
+                                <h4>Download List</h4>
+                                <p>Export the complete list of registered papers in PDF or Excel format</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+    </div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

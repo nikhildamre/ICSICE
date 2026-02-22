@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Submission - ICSICE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Ensure FontAwesome icons are properly loaded */
+        .fa {
+            display: inline-block !important;
+            font: normal normal normal 14px/1 FontAwesome !important;
+            font-size: inherit !important;
+            text-rendering: auto !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+        }
+        
+        /* Paper Submission Specific Styles */
+        .submission-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .submission-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .submission-badge {
+            display: inline-block;
+            background: #1552ca;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .submission-header h1 {
+            color: #121f3b;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .submission-header h1 i {
+            color: #1552ca;
+            margin-right: 15px;
+        }
+        
+        .submission-header p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content Card */
+        .main-content-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid #f1f3f4;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .decorative-element {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #4ab8ff 0%, #1552ca 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .content-relative {
+            position: relative;
+        }
+        
+        /* Submission Form Section */
+        .submission-form-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #121f3b;
+            font-size: 28px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .section-title i {
+            color: #1552ca;
+            margin-right: 10px;
+        }
+        
+        .form-highlight-box {
+            background: linear-gradient(135deg, #1e5fcc 0%, #2563eb 100%);
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: none;
+            margin-bottom: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .form-highlight-box:hover {
+            border-color: transparent;
+            box-shadow: 0 8px 25px rgba(30, 95, 204, 0.3);
+        }
+        
+        .form-highlight-box i {
+            font-size: 48px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .form-highlight-box h3 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .form-highlight-box p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+        }
+        
+        .form-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+            color: #333;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            margin: 0 10px;
+            border: 2px solid transparent;
+            min-height: 50px;
+        }
+        
+        .form-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+            background: linear-gradient(135deg, #ffcc00 0%, #ff9500 100%);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .form-button i {
+            font-size: 18px;
+            color: #333 !important;
+            display: inline-block !important;
+            font-family: FontAwesome !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+            margin: 0;
+        }
+        
+        /* Process Steps */
+        .process-section {
+            margin-bottom: 40px;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .process-step {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #d1ecf1;
+            border-left: 5px solid #1552ca;
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-color: #bee5eb;
+        }
+        
+        .process-step:nth-child(2) {
+            border-left-color: #4ab8ff;
+            border-color: #c3e6cb;
+        }
+        
+        .process-step:nth-child(3) {
+            border-left-color: #0056c8;
+            border-color: #f5c6cb;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .process-step:nth-child(1) .step-number {
+            background: #1552ca;
+        }
+        
+        .process-step:nth-child(2) .step-number {
+            background: #4ab8ff;
+        }
+        
+        .process-step:nth-child(3) .step-number {
+            background: #0056c8;
+        }
+        
+        .step-title {
+            color: #121f3b;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .step-description {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Template Section */
+        .template-section {
+            margin-bottom: 40px;
+        }
+        
+        .template-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .template-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            border: 2px solid transparent;
+            min-height: 50px;
+        }
+        
+        .template-button i {
+            font-size: 16px;
+            display: inline-block !important;
+            font-family: FontAwesome !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+            margin: 0;
+        }
+        
+        .template-button.green {
+            background: #ffd700;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            border: none;
+        }
+        
+        .template-button.green i {
+            color: #333;
+        }
+        
+        .template-button.green:hover {
+            background: #ffcc00;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            border-color: transparent;
+        }
+        
+        .template-button.purple {
+            background: white;
+            color: #2563eb;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid white;
+        }
+        
+        .template-button.purple i {
+            color: #2563eb;
+        }
+        
+        .template-button.purple:hover {
+            background: #f8f9fa;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border-color: #f8f9fa;
+        }
+        
+        .template-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        .template-note {
+            color: #666;
+            margin: 0;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        /* Guidelines Grid */
+        .guidelines-section {
+            margin-bottom: 20px;
+        }
+        
+        .guidelines-grid {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
+        
+        .guideline-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border: 2px solid #e9ecef;
+            min-width: 180px;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .guideline-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-color: #ced4da;
+        }
+        
+        .guideline-card:nth-child(1) {
+            border-left: 6px solid #dc3545;
+        }
+        
+        .guideline-card:nth-child(2) {
+            border-left: 6px solid #fd7e14;
+        }
+        
+        .guideline-card:nth-child(3) {
+            border-left: 6px solid #20c997;
+        }
+        
+        .guideline-card:nth-child(4) {
+            border-left: 6px solid #6610f2;
+        }
+        
+        .guideline-card:nth-child(5) {
+            border-left: 6px solid #6610f2;
+        }
+        
+        .guideline-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .guideline-card:nth-child(1) .guideline-icon {
+            background: #dc3545;
+        }
+        
+        .guideline-card:nth-child(2) .guideline-icon {
+            background: #fd7e14;
+        }
+        
+        .guideline-card:nth-child(3) .guideline-icon {
+            background: #20c997;
+        }
+        
+        .guideline-card:nth-child(4) .guideline-icon {
+            background: #6610f2;
+        }
+        
+        .guideline-card:nth-child(5) .guideline-icon {
+            background: #6610f2;
+        }
+        
+        .guideline-title {
+            color: #121f3b;
+            font-size: 15px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .guideline-description {
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+            font-size: 13px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .submission-container {
+                padding: 0 15px;
+                margin: 30px auto;
+            }
+            
+            .submission-header h1 {
+                font-size: 2rem;
+            }
+            
+            .submission-header p {
+                font-size: 16px;
+            }
+            
+            .main-content-card {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .form-highlight-box {
+                padding: 30px 20px;
+            }
+            
+            .form-highlight-box h3 {
+                font-size: 20px;
+            }
+            
+            .form-highlight-box p {
+                font-size: 15px;
+            }
+            
+            .form-button {
+                padding: 12px 25px;
+                font-size: 16px;
+                margin: 5px;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .template-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .guidelines-grid {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .guideline-card {
+                min-width: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .submission-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .main-content-card {
+                padding: 20px 15px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .form-highlight-box {
+                padding: 25px 15px;
+            }
+            
+            .form-highlight-box h3 {
+                font-size: 18px;
+            }
+            
+            .form-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .template-button {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page" class="site-wrapper">
+        <header id="header"></header>
+
+        <main id="primary" class="site-main">
+            <div class="submission-container">
+                <!-- Page Header -->
+                <div class="submission-header">
+                    <div class="submission-badge">PAPER SUBMISSION</div>
+                    <h1><i class="fa fa-upload"></i>Submission Guidelines</h1>
+                    <p>Submit your research papers for ICSICE-2026 following our comprehensive guidelines</p>
+                </div>
+
+                <!-- Main Content Card -->
+                <div class="main-content-card">
+                    <div class="decorative-element"></div>
+                    
+                    <div class="content-relative">
+                        <!-- Paper Submission Form -->
+                        <div class="submission-form-section">
+                            <h2 class="section-title">
+                                <i class="fa fa-wpforms"></i>Paper Submission Form
+                            </h2>
+                            <div class="form-highlight-box">
+                                <i class="fa fa-file-text"></i>
+                                <h3>Complete Your Submission</h3>
+                                <p>Complete your registration and paper submission through our secure online form</p>
+                                <div>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdE1TZSeqOpWkTC6kk3wiNgJrd61Xd_qSXwTJKbqIPJoel1_w/viewform?usp=send_form" 
+                                       target="_blank" class="form-button">
+                                        <i class="fa fa-external-link"></i>Open Registration Form
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submission Process -->
+                        <div class="process-section">
+                            <h2 class="section-title">
+                                <i class="fa fa-list-ol"></i>Submission Process
+                            </h2>
+                            <div class="process-grid">
+                                <div class="process-step">
+                                    <div class="step-number">1</div>
+                                    <h4 class="step-title">Prepare Your Paper</h4>
+                                    <p class="step-description">Format your paper according to IEEE conference template. Maximum 6-8 pages including references.</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">2</div>
+                                    <h4 class="step-title">Submit Online</h4>
+                                    <p class="step-description">Upload your paper through our online submission system. Create an account if you haven't already.</p>
+                                </div>
+                                <div class="process-step">
+                                    <div class="step-number">3</div>
+                                    <h4 class="step-title">Peer Review</h4>
+                                    <p class="step-description">Your paper will undergo double-blind peer review by experts in your field.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paper Template & Guidelines -->
+                        <div class="template-section">
+                            <h2 class="section-title">
+                                <i class="fa fa-file-text-o"></i>Paper Template & Guidelines
+                            </h2>
+                            <div class="form-highlight-box">
+                                <i class="fa fa-download"></i>
+                                <h3>Download Resources</h3>
+                                <p>Download the official template and follow our formatting guidelines</p>
+                                <div class="template-buttons">
+                                    <a href="#" class="template-button green">
+                                        <i class="fa fa-download"></i>Download Template
+                                    </a>
+                                    <a href="#" class="template-button purple">
+                                        <i class="fa fa-book"></i>Download Guidelines
+                                    </a>
+                                </div>
+                                <p class="template-note">Get the official ICSICE-2026 paper template and formatting guidelines in DOCX format</p>
+                            </div>
+                        </div>
+
+                        <!-- Manuscript Guidelines -->
+                        <div class="guidelines-section">
+                            <h2 class="section-title">
+                                <i class="fa fa-list-ul"></i>Manuscript Guidelines
+                            </h2>
+                            <div class="guidelines-grid">
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <h4 class="guideline-title">Originality</h4>
+                                    <p class="guideline-description">Papers must be original and not submitted elsewhere for publication</p>
+                                </div>
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fa fa-file-o"></i>
+                                    </div>
+                                    <h4 class="guideline-title">Length</h4>
+                                    <p class="guideline-description">Maximum 6-8 pages including references and appendices</p>
+                                </div>
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fa fa-cogs"></i>
+                                    </div>
+                                    <h4 class="guideline-title">Format</h4>
+                                    <p class="guideline-description">IEEE/Springer conference format (use provided template)</p>
+                                </div>
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fa fa-file-pdf-o"></i>
+                                    </div>
+                                    <h4 class="guideline-title">File Type</h4>
+                                    <p class="guideline-description">Submit in PDF or DOC/DOCX format</p>
+                                </div>
+                                <div class="guideline-card">
+                                    <div class="guideline-icon">
+                                        <i class="fa fa-language"></i>
+                                    </div>
+                                    <h4 class="guideline-title">Language</h4>
+                                    <p class="guideline-description">English only - proper grammar and spelling required</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+    </div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

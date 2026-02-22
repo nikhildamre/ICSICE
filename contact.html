@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ICSICE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .contact-header h1 {
+            color: #1552ca;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .contact-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .contact-card:first-child {
+            border-left: 5px solid #1552ca;
+        }
+        
+        .contact-card:last-child {
+            border-left: 5px solid #4ab8ff;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(21, 82, 202, 0.2);
+        }
+        
+        .contact-card h2 {
+            color: #1552ca;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-card:last-child h2 {
+            color: #4ab8ff;
+        }
+        
+        .contact-card .icon {
+            background: linear-gradient(135deg, #1552ca, #4ab8ff);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(21, 82, 202, 0.3);
+        }
+        
+        .contact-card:last-child .icon {
+            background: linear-gradient(135deg, #4ab8ff, #1552ca);
+        }
+        
+        .contact-person {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1552ca;
+        }
+        
+        .contact-person h3 {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .contact-person .phone {
+            color: #1552ca;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-person .phone i {
+            color: #4ab8ff;
+        }
+        
+        .email-section {
+            background: #e3f2fd;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .email-section h4 {
+            color: #1552ca;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .email-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .email-item i {
+            color: #4ab8ff;
+            width: 20px;
+        }
+        
+        .email-item a {
+            color: #1552ca;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .email-item a:hover {
+            color: #0056c8;
+        }
+        
+        .response-time {
+            background: linear-gradient(135deg, #e8f4fd, #f0f8ff);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #4ab8ff;
+        }
+        
+        .response-time i {
+            color: #1552ca;
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+        
+        .response-time span {
+            color: #1552ca;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Form Styles */
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 15px 18px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4ab8ff;
+            box-shadow: 0 0 0 4px rgba(74, 184, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #1552ca, #4ab8ff);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            justify-self: start;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(21, 82, 202, 0.3);
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #0056c8, #1552ca);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(21, 82, 202, 0.4);
+        }
+        
+        .submit-btn i {
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Page Responsive Design */
+        @media (max-width: 768px) {
+            /* Header responsive */
+            .contact-header h1 {
+                font-size: 2rem !important;
+            }
+            
+            .contact-header p {
+                font-size: 1rem !important;
+            }
+            
+            /* Grid to single column */
+            .contact-cards {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            .contact-card {
+                padding: 25px 20px !important;
+            }
+            
+            .contact-card h2 {
+                font-size: 1.4rem !important;
+            }
+            
+            .contact-person h3 {
+                font-size: 1.2rem !important;
+            }
+            
+            .contact-person .phone {
+                font-size: 1rem !important;
+            }
+            
+            .email-section h4 {
+                font-size: 1.1rem !important;
+            }
+            
+            /* Form responsive */
+            .form-group label {
+                font-size: 0.9rem !important;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                padding: 12px 15px !important;
+                font-size: 0.9rem !important;
+            }
+            
+            .submit-btn {
+                padding: 15px 30px !important;
+                font-size: 1rem !important;
+            }
+            
+            /* Reduce container padding on mobile */
+            .contact-container {
+                padding: 0 15px !important;
+                margin: 30px auto !important;
+            }
+            
+            /* Icon sizes */
+            .contact-card .icon {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 1rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Further reduce font sizes */
+            .contact-header h1 {
+                font-size: 1.6rem !important;
+            }
+            
+            .contact-header p {
+                font-size: 0.9rem !important;
+            }
+            
+            .contact-card h2 {
+                font-size: 1.2rem !important;
+            }
+            
+            .contact-person h3 {
+                font-size: 1.1rem !important;
+            }
+            
+            .contact-person .phone {
+                font-size: 0.9rem !important;
+            }
+            
+            .email-section h4 {
+                font-size: 1rem !important;
+            }
+            
+            /* Smaller padding */
+            .contact-container {
+                padding: 0 10px !important;
+                margin: 20px auto !important;
+            }
+            
+            .contact-card {
+                padding: 20px 15px !important;
+            }
+            
+            .contact-person {
+                padding: 15px !important;
+            }
+            
+            .email-section {
+                padding: 15px !important;
+            }
+            
+            .response-time {
+                padding: 12px !important;
+            }
+            
+            /* Form adjustments */
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 12px !important;
+                font-size: 0.85rem !important;
+            }
+            
+            .form-group textarea {
+                min-height: 120px !important;
+            }
+            
+            .submit-btn {
+                padding: 12px 25px !important;
+                font-size: 0.9rem !important;
+            }
+            
+            /* Icon sizes */
+            .contact-card .icon {
+                width: 35px !important;
+                height: 35px !important;
+                font-size: 0.9rem !important;
+            }
+            
+            /* Reduce gaps */
+            .contact-cards {
+                gap: 15px !important;
+            }
+            
+            .contact-card h2 {
+                gap: 10px !important;
+                margin-bottom: 20px !important;
+            }
+            
+            .contact-person {
+                margin-bottom: 15px !important;
+            }
+            
+            .email-section {
+                margin-bottom: 15px !important;
+            }
+            
+            .email-item {
+                margin-bottom: 8px !important;
+            }
+            
+            .contact-form {
+                gap: 15px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page" class="site-wrapper">
+        <header id="header"></header>
+
+        <main id="primary" class="site-main">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h1>Contact Us</h1>
+                    <p>Get in touch with us for any queries regarding the International Conference on Sustainability Innovation in Computing and Engineering (ICSICE)</p>
+                </div>
+
+                <div class="contact-cards">
+                    <!-- Contact Information Card -->
+                    <div class="contact-card">
+                        <h2>
+                            <div class="icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            Contact Information
+                        </h2>
+
+                        <div class="contact-person">
+                            <h3>Dr. Rais A. Mulla</h3>
+                            <div class="phone">
+                                <i class="fa fa-phone"></i>
+                                <a href="tel:+918485863406" style="color: #1552ca; text-decoration: none;">+91 84858 63406</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-person">
+                            <h3>Dr. Mahendra Pawar</h3>
+                            <div class="phone">
+                                <i class="fa fa-phone"></i>
+                                <a href="tel:+919890838047" style="color: #1552ca; text-decoration: none;">+91 98908 38047</a>
+                            </div>
+                        </div> 
+
+                        <div class="contact-person">
+                            <h3>Ms. Harshini</h3>
+                            <div class="phone">
+                                <i class="fa fa-phone"></i>
+                                <a href="tel:+916374565412" style="color: #1552ca; text-decoration: none;">+91 63745 65412</a>
+                            </div>
+                        </div>
+
+                        <div class="email-section">
+                            <h4>
+                                <i class="fa fa-envelope"></i>
+                                Conference Email Support
+                            </h4>
+                            <div class="email-item">
+                                <i class="fa fa-envelope"></i>
+                                <a href="mailto:icsice@pvppcoe.ac.in">icsice@pvppcoe.ac.in</a>
+                            </div>
+                            <div class="email-item">
+                                <i class="fa fa-envelope"></i>
+                                <a href="mailto:icsiceconference@gmail.com">icsiceconference@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="response-time">
+                            <i class="fa fa-clock-o"></i>
+                            <span>Quick Response: 24-48 hours</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Card -->
+                    <div class="contact-card">
+                        <h2>
+                            <div class="icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            Send us a Message
+                        </h2>
+
+                        <form class="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="What is this regarding?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fa fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+    </div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

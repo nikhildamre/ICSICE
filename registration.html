@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - ICSICE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Ensure FontAwesome icons are properly loaded */
+        .fa {
+            display: inline-block !important;
+            font: normal normal normal 14px/1 FontAwesome !important;
+            font-size: inherit !important;
+            text-rendering: auto !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+        }
+        
+        /* Registration Specific Styles */
+        .registration-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 20px 20px;
+        }
+        
+        .registration-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .registration-badge {
+            display: inline-block;
+            background: #1552ca;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .registration-header h1 {
+            color: #121f3b;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .registration-header h1 i {
+            color: #1552ca;
+            margin-right: 15px;
+        }
+        
+        .registration-header p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Step Sections */
+        .step-section {
+            width: 100%;
+            margin: 0;
+            padding: 60px 0;
+            margin-bottom: 0;
+        }
+        
+        .step-section.step-1 {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+        }
+        
+        .step-section.step-2 {
+            background: #fff;
+        }
+        
+        .step-badge {
+            display: inline-block;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .step-badge.step-1 {
+            background: #1552ca;
+        }
+        
+        .step-badge.step-2 {
+            background: #4ab8ff;
+        }
+        
+        .step-title {
+            color: #121f3b;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .step-title i {
+            margin-right: 15px;
+        }
+        
+        .step-title.step-1 i {
+            color: #1552ca;
+        }
+        
+        .step-title.step-2 i {
+            color: #4ab8ff;
+        }
+        
+        .step-description {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .step-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        
+        /* Registration Form Card */
+        .registration-form-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .decorative-element {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #4ab8ff 0%, #1552ca 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .form-highlight-card {
+            background: linear-gradient(135deg, #4ab8ff 0%, #1552ca 100%);
+            padding: 45px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-highlight-card i {
+            font-size: 60px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+        }
+        
+        .form-highlight-card h3 {
+            color: #fff;
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .form-highlight-card p {
+            color: #ccebff;
+            font-size: 17px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        .form-highlight-card .warning {
+            color: #ffd700;
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .form-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #ffd700;
+            color: #1552ca;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+            position: relative;
+            transform: translateY(0);
+            border: 3px solid #ffd700;
+        }
+        
+        .form-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255,215,0,0.5);
+            color: #1552ca;
+        }
+        
+        .form-link i {
+            font-size: 18px;
+            color: #1552ca;
+            display: inline-block;
+            font-family: FontAwesome !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+            margin: 0;
+        }
+        
+        /* Instructions Grid */
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .instruction-card {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #1552ca;
+            transition: all 0.3s;
+            border: 2px solid #c8d6e5;
+        }
+        
+        .instruction-card.second {
+            border-left-color: #4ab8ff;
+        }
+        
+        .instruction-card.third {
+            border-left-color: #0056c8;
+        }
+        
+        .instruction-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .instruction-card .instruction-icon {
+            background: #1552ca;
+        }
+        
+        .instruction-card.second .instruction-icon {
+            background: #4ab8ff;
+        }
+        
+        .instruction-card.third .instruction-icon {
+            background: #0056c8;
+        }
+        
+        .instruction-icon i {
+            color: #fff;
+            font-size: 22px;
+        }
+        
+        .instruction-card h4 {
+            color: #121f3b;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .instruction-card p {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Payment Methods Grid */
+        .payment-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .payment-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            padding: 25px 15px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-top: 6px solid #1552ca;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .payment-card.upi {
+            border-top-color: #4ab8ff;
+        }
+        
+        .payment-card .decorative-bg {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            opacity: 0.05;
+        }
+        
+        .payment-card .decorative-bg.bank {
+            background: #1552ca;
+        }
+        
+        .payment-card .decorative-bg.upi {
+            background: #4ab8ff;
+        }
+        
+        .payment-header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .payment-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(21,82,202,0.3);
+        }
+        
+        .payment-icon.bank {
+            background: linear-gradient(135deg, #1552ca 0%, #0056c8 100%);
+        }
+        
+        .payment-icon.upi {
+            background: linear-gradient(135deg, #4ab8ff 0%, #1552ca 100%);
+        }
+        
+        .payment-icon i {
+            color: #fff;
+            font-size: 32px;
+        }
+        
+        .payment-header h3 {
+            color: #121f3b;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .payment-details {
+            background: #fff;
+            padding: 20px 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+            box-sizing: border-box;
+        }
+        
+        .bank-details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .bank-details-table tr {
+            border-bottom: 2px solid #f0f4f8;
+        }
+        
+        .bank-details-table td {
+            padding: 15px 0;
+            font-size: 14px;
+        }
+        
+        .bank-details-table td:first-child {
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .bank-details-table td:last-child {
+            color: #121f3b;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .account-number {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+        }
+        
+        .ifsc-code {
+            color: #1552ca;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .upi-details {
+            text-align: center;
+        }
+        
+        .qr-code-container {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .qr-code-container img {
+            max-width: 220px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .upi-id-container {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .upi-id-label {
+            color: #666;
+            margin: 0 0 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .upi-id {
+            color: #1552ca;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0;
+            word-break: break-all;
+        }
+        
+        .merchant-info {
+            color: #666;
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .merchant-info strong {
+            color: #121f3b;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .registration-container {
+                padding: 40px 15px;
+            }
+            
+            .registration-header h1,
+            .step-title {
+                font-size: 28px;
+            }
+            
+            .registration-header p,
+            .step-description {
+                font-size: 16px;
+            }
+            
+            .step-content {
+                padding: 0 20px;
+            }
+            
+            .registration-form-card {
+                padding: 30px 20px;
+            }
+            
+            .form-highlight-card {
+                padding: 30px 20px;
+            }
+            
+            .form-highlight-card i {
+                font-size: 50px;
+            }
+            
+            .form-highlight-card h3 {
+                font-size: 24px;
+            }
+            
+            .form-highlight-card p,
+            .form-highlight-card .warning {
+                font-size: 15px;
+            }
+            
+            .form-link {
+                padding: 15px 35px;
+                font-size: 16px;
+            }
+            
+            .instructions-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .instruction-card {
+                padding: 20px;
+            }
+            
+            .payment-methods-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .payment-card {
+                padding: 20px 15px;
+            }
+            
+            .payment-details {
+                padding: 15px 10px;
+            }
+            
+            .bank-details-table td {
+                padding: 12px 0;
+                font-size: 13px;
+            }
+            
+            .qr-code-container img {
+                max-width: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .registration-container {
+                padding: 30px 10px;
+            }
+            
+            .registration-header h1,
+            .step-title {
+                font-size: 24px;
+            }
+            
+            .registration-header h1 i,
+            .step-title i {
+                margin-right: 10px;
+            }
+            
+            .registration-header p,
+            .step-description {
+                font-size: 14px;
+            }
+            
+            .registration-badge,
+            .step-badge {
+                padding: 6px 20px;
+                font-size: 12px;
+            }
+            
+            .step-content {
+                padding: 0 15px;
+            }
+            
+            .registration-form-card {
+                padding: 25px 15px;
+            }
+            
+            .form-highlight-card {
+                padding: 25px 15px;
+            }
+            
+            .form-highlight-card i {
+                font-size: 45px;
+            }
+            
+            .form-highlight-card h3 {
+                font-size: 22px;
+            }
+            
+            .form-highlight-card p,
+            .form-highlight-card .warning {
+                font-size: 14px;
+            }
+            
+            .form-link {
+                padding: 12px 30px;
+                font-size: 15px;
+            }
+            
+            .instruction-card {
+                padding: 18px;
+            }
+            
+            .instruction-card h4 {
+                font-size: 16px;
+            }
+            
+            .instruction-card p {
+                font-size: 14px;
+            }
+            
+            .instruction-icon {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .instruction-icon i {
+                font-size: 20px;
+            }
+            
+            .payment-card {
+                padding: 18px 12px;
+            }
+            
+            .payment-header h3 {
+                font-size: 20px;
+            }
+            
+            .payment-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .payment-icon i {
+                font-size: 28px;
+            }
+            
+            .payment-details {
+                padding: 15px 8px;
+            }
+            
+            .bank-details-table td {
+                padding: 10px 0;
+                font-size: 12px;
+            }
+            
+            .qr-code-container img {
+                max-width: 160px;
+            }
+            
+            .upi-id {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page" class="site-wrapper">
+        <header id="header"></header>
+
+        <main id="primary" class="site-main">
+            <div class="registration-container">
+                <!-- Page Header -->
+                <div class="registration-header">
+                    <div class="registration-badge">REGISTRATION & PAYMENT</div>
+                    <h1>
+                        <i class="fa fa-user-plus"></i>Conference Registration
+                    </h1>
+                    <p>Complete your registration and payment for ICSICE-2026 in two simple steps</p>
+                </div>
+            </div>
+
+            <!-- Step 1: Registration Section -->
+            <section class="step-section step-1">
+                <div class="step-content">
+                    <!-- Section Title -->
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <div class="step-badge step-1">STEP 1</div>
+                        <h2 class="step-title step-1">
+                            <i class="fa fa-user-plus"></i>Registration
+                        </h2>
+                        <p class="step-description">Submit your paper and register for ICSICE-2026 through our online form</p>
+                    </div>
+
+                    <!-- Main Card -->
+                    <div class="registration-form-card">
+                        <!-- Decorative Element -->
+                        <div class="decorative-element"></div>
+                        
+                        <div class="form-highlight-card">
+                            <i class="fa fa-file-alt"></i>
+                            <h3>Registration Form</h3>
+                            <p>Only one author should fill out the form, and it can only be submitted once with no changes allowed later.</p>
+                            <p class="warning">⚠️ The names entered (1 to 6 authors) will be used for the certificates, so double-check before submitting.</p>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfD0SmvLt6B04ip4RwijEjgqudB6aGsZeIl88LPFolT85yfcQ/viewform" target="_blank" class="form-link">
+                                <i class="fa fa-external-link"></i>Open Registration Form
+                            </a>
+                        </div>
+
+                        <!-- Instructions Grid -->
+                        <div class="instructions-grid">
+                            <div class="instruction-card">
+                                <div class="instruction-icon">
+                                    <i class="fa fa-mouse-pointer"></i>
+                                </div>
+                                <h4>Choose Form</h4>
+                                <p>Select either registration form above to access the secure form</p>
+                            </div>
+
+                            <div class="instruction-card second">
+                                <div class="instruction-icon">
+                                    <i class="fa fa-edit"></i>
+                                </div>
+                                <h4>Fill Carefully</h4>
+                                <p>Provide accurate information - names will be used for certificates</p>
+                            </div>
+
+                            <div class="instruction-card third">
+                                <div class="instruction-icon">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                </div>
+                                <h4>Submit Once</h4>
+                                <p>Form can only be submitted once - no changes allowed later</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Payment Section -->
+            <section class="step-section step-2">
+                <div class="step-content">
+                    <!-- Section Title -->
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <div class="step-badge step-2">STEP 2</div>
+                        <h2 class="step-title step-2">
+                            <i class="fa fa-credit-card"></i>Payment Details
+                        </h2>
+                        <p class="step-description">Choose your preferred payment method and complete the transaction</p>
+                    </div>
+
+                    <!-- Payment Methods Grid -->
+                    <div class="payment-methods-grid">
+                        <!-- Bank Transfer Card -->
+                        <div class="payment-card bank">
+                            <div class="decorative-bg bank"></div>
+                            <div class="payment-header">
+                                <div class="payment-icon bank">
+                                    <i class="fa fa-university"></i>
+                                </div>
+                                <h3>Bank Transfer</h3>
+                            </div>
+                            <div class="payment-details">
+                                <table class="bank-details-table">
+                                    <tr>
+                                        <td>Account Name</td>
+                                        <td>Sivakumar P</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Account Number</td>
+                                        <td class="account-number">1136135000002810</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bank Name</td>
+                                        <td>Karur Vysya Bank</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Branch</td>
+                                        <td>Kalappanaickenpatti</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IFSC Code</td>
+                                        <td class="ifsc-code">KVBL0001136</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- UPI Payment Card -->
+                        <div class="payment-card upi">
+                            <div class="decorative-bg upi"></div>
+                            <div class="payment-header">
+                                <div class="payment-icon upi">
+                                    <i class="fa fa-mobile"></i>
+                                </div>
+                                <h3>UPI Payment</h3>
+                            </div>
+                            <div class="payment-details">
+                                <div class="upi-details">
+                                    <div class="qr-code-container">
+                                        <img src="assets/gallery/UPI-ID.jpg" alt="UPI QR Code" style="max-width: 220px; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                    </div>
+                                    <div class="upi-id-container">
+                                        <p class="upi-id-label">UPI ID</p>
+                                        <p class="upi-id">kvbupiqr.105000000013308@kvb</p>
+                                    </div>
+                                    <p class="merchant-info"><strong>Merchant:</strong> SIVAKUMAR P</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="footer"></div>
+    </div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

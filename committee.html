@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee - ICSICE 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Committee Page Specific Styles -->
+    <style>
+        /* Committee Page Enhancements */
+        body {
+            background: #f8f9fa !important;
+            min-height: 100vh;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            color: #1552ca;
+            margin: 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Container Cards */
+        .section-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Section Headers */
+        .section-header {
+            color: #1552ca !important;
+            font-weight: 700 !important;
+            font-size: 2.2rem !important;
+            text-align: center !important;
+            margin: 0 0 30px 0 !important;
+            position: relative;
+            padding: 0 !important;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #1552ca 0%, #4ab8ff 100%);
+            border-radius: 2px;
+        }
+
+        /* Committee Cards Container */
+        .committee-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .committee-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Individual Committee Cards */
+        .committee-card {
+            background: white !important;
+            border-radius: 25px !important;
+            padding: 25px 20px !important;
+            box-shadow: 0 15px 35px rgba(21, 82, 202, 0.15) !important;
+            transition: all 0.4s ease !important;
+            border: 2px solid rgba(21, 82, 202, 0.1) !important;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px !important;
+            width: 100% !important;
+            max-width: 350px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+        }
+
+        .committee-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #1552ca 0%, #4ab8ff 100%);
+        }
+
+        .committee-card:hover {
+            transform: translateY(-15px) !important;
+            box-shadow: 0 25px 50px rgba(21, 82, 202, 0.25) !important;
+            border-color: rgba(21, 82, 202, 0.3) !important;
+        }
+
+        /* Card Image */
+        .card-image {
+            width: 220px !important;
+            height: 280px !important;
+            margin: 0 auto 20px auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border-radius: 15px !important;
+            overflow: hidden !important;
+            box-shadow: 0 8px 25px rgba(21, 82, 202, 0.2) !important;
+            background: #f8f9ff !important;
+            flex-shrink: 0 !important;
+        }
+
+        .card-image img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            transition: all 0.3s ease !important;
+            border-radius: 15px !important;
+        }
+
+        .card-image:hover {
+            transform: scale(1.02) !important;
+            box-shadow: 0 12px 35px rgba(21, 82, 202, 0.3) !important;
+        }
+
+        /* Card Content */
+        .card-content {
+            flex-grow: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+        }
+
+        .card-name {
+            color: #1552ca !important;
+            font-weight: 700 !important;
+            font-size: 1.5rem !important;
+            margin-bottom: 15px !important;
+            text-align: center !important;
+            line-height: 1.3 !important;
+            min-height: 60px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .card-designation {
+            color: #121f3b !important;
+            font-size: 1.1rem !important;
+            text-align: center !important;
+            font-weight: 500 !important;
+            line-height: 1.6 !important;
+            padding: 0 10px !important;
+            min-height: 40px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        /* Committee Tables */
+        .committee-table-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            padding: 0;
+            overflow: visible;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            min-height: 600px;
+        }
+
+        .committee-table-title {
+            display: block;
+            background: white;
+            color: #1552ca;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            border: none;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .committee-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border: none;
+            margin: 0;
+        }
+
+        .committee-table thead {
+            background: #f8f9fa;
+        }
+
+        .committee-table th {
+            color: #1552ca;
+            font-weight: 700;
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #ddd;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .committee-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            font-size: 1rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+            white-space: normal;
+            overflow: visible;
+        }
+
+        .committee-table td:first-child {
+            color: #1552ca;
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .committee-table td:last-child {
+            color: #333;
+            width: 70%;
+        }
+
+        .committee-table tbody tr:hover {
+            background-color: #f8f9ff;
+        }
+
+        .committee-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .section-header {
+                font-size: 1.8rem !important;
+                padding: 15px 20px !important;
+                margin: 30px 0 20px 0 !important;
+            }
+
+            .committee-cards {
+                gap: 20px;
+            }
+
+            .committee-card {
+                max-width: 350px;
+                min-height: 450px;
+                padding: 20px 15px;
+            }
+
+            .card-image {
+                width: 180px !important;
+                height: 230px !important;
+            }
+
+            .card-name {
+                font-size: 1.3rem !important;
+                min-height: 50px !important;
+            }
+
+            .committee-table-container {
+                margin: 0 10px 30px 10px;
+            }
+
+            .committee-table-title {
+                font-size: 1.5rem;
+                padding: 15px;
+            }
+
+            .committee-table th,
+            .committee-table td {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-header {
+                font-size: 1.4rem !important;
+                padding: 12px 15px !important;
+                margin: 20px 0 15px 0 !important;
+            }
+
+            .committee-card {
+                max-width: 300px;
+                min-height: 400px;
+            }
+
+            .card-image {
+                width: 160px !important;
+                height: 200px !important;
+            }
+
+            .committee-table-title {
+                font-size: 1.3rem;
+                padding: 12px;
+            }
+
+            .committee-table th,
+            .committee-table td {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page" class="site-wrapper">
+        <header id="header"></header>
+
+        <main id="primary" class="site-main">
+            <!-- Page Title -->
+            <section class="page-title">
+                <h1>Committee</h1>
+            </section>
+
+            <!-- Committee Content -->
+            <div class="committee-section">
+                <!-- Chief Patron Section -->
+                <div class="section-container">
+                    <h2 class="section-header">Chief Patron</h2>
+                    <div class="committee-cards">
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Shri. Nandkumar M. Katkar.jpg" alt="Shri. Nandkumar M. Katkar">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Shri. Nandkumar M. Katkar</h3>
+                                <div class="card-designation">President<br><br>Vasantdada Patil Pratishthan</div>
+                            </div>
+                        </div>
+                        
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Shri. Ravindra Ghorpade.jpg" alt="Shri. Ravindra Ghorpade">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Shri. Ravindra Ghorpade</h3>
+                                <div class="card-designation">Vice President<br><br>Vasantdada Patil Pratishthan</div>
+                            </div>
+                        </div>
+                        
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Adv. Shri. Appasaheb S. Desai.png" alt="Adv. Shri. Appasaheb S. Desai">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Adv. Shri. Appasaheb S. Desai</h3>
+                                <div class="card-designation">General Secretary<br><br>Vasantdada Patil Pratishthan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patron Section -->
+                <div class="section-container">
+                    <h2 class="section-header">Patron</h2>
+                    <div class="committee-cards">
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Prof. Ashok Chavan.jpeg" alt="Prof. Ashok Chavan">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Prof. Ashok Chavan</h3>
+                                <div class="card-designation">Campus Director<br><br>Vasantdada Patil Pratishthan</div>
+                            </div>
+                        </div>
+                        
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Dr. Alam N. Shaikh.png" alt="Dr. Alam N. Shaikh">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Alam N. Shaikh</h3>
+                                <div class="card-designation">Principal<br><br>Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts</div>
+                            </div>
+                        </div>
+                        
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Dr. Pravin H. Yadav.jpg" alt="Dr. Pravin H. Yadav">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Pravin H. Yadav</h3>
+                                <div class="card-designation">Vice Principal<br><br>Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts</div>
+                            </div>
+                        </div>
+                        
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Mr. Varun Desai.jpg" alt="Mr. Varun Desai">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Mr. Varun Desai</h3>
+                                <div class="card-designation">Registrar<br><br>Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts</div>
+                            </div>
+                        </div>
+                        
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Swapnil Desai.jpg" alt="Dr. Swapnil Desai">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Swapnil Desai</h3>
+                                <div class="card-designation">Associate Professor<br><br>Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conference Convener Section -->
+                <div class="section-container">
+                    <h2 class="section-header">Conference Convener</h2>
+                    <div class="committee-cards">
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Dr. Rais A. Mulla.jpg" alt="Dr. Rais A. Mulla">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Rais A. Mulla</h3>
+                                <div class="card-designation">Associate Professor, Head of Computer Engineering Department<br><br>Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- National Advisory Committee Table -->
+                <div class="committee-table-container">
+                    <h2 class="committee-table-title">National Advisory Committee</h2>
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. A.K. Gupta</td>
+                                <td>Vice Chancellor, DYP-ATU, Kolhapur</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Satyanarayana Reddy</td>
+                                <td>Vice Chancellor, Srinivas University, Mangaluru</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Ramchandra V. Pujeri</td>
+                                <td>Pro Vice Chancellor, MIT ADT University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Gomathi N.</td>
+                                <td>Professor, Computer Science and Engineering, Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Avadi, Chennai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Chandra Prakash</td>
+                                <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Amolkumar Jadhav</td>
+                                <td>Associate Professor (CSE), D. Y. Patil College of Engineering and Technology</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Alok Kumar</td>
+                                <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anirban Bhattacharjee</td>
+                                <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Jagannath E. Nalavade</td>
+                                <td>Department of Computer Science and Engineering, MIT Art, Design and Technology University, Pune, Maharashtra, India</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Deepak S. Dharrao</td>
+                                <td>Associate Professor, Symbiosis University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Yogesh Mali</td>
+                                <td>Dean – Research, Ajeenkya D Y Patil University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Pramod A. Jadhav</td>
+                                <td>Associate Professor, Bharati Vidyapeeth (Deemed to be University), College of Engineering, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Gnanaprakasam Thankavel</td>
+                                <td>Alliance University, Bangalore</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- International Advisory Committee Table -->
+                <div class="committee-table-container">
+                    <h2 class="committee-table-title">International Advisory Committee</h2>
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Seyedali Mirjalili</td>
+                                <td>Professor, Director, Editor, Data Scientist, Torrens University, Australia</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Parag Kulkarni</td>
+                                <td>Professor, Institute for International Strategy, Tokyo International University, Japan</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anupam Joshi</td>
+                                <td>University of Maryland, USA (AI & IoT)</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anand Soni</td>
+                                <td>School of Business, Kingdom of Bahrain</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Vidya Badrinarayanan</td>
+                                <td>Nanyang Technological University, Singapore</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Dwivedi Amit</td>
+                                <td>University of Warwick, United Kingdom</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Schahram Dustdar</td>
+                                <td>TU Wien, Austria (Distributed Systems)</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. San Murugesan</td>
+                                <td>Western Sydney University, Australia</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Sameer S. Sonkusale</td>
+                                <td>Tufts University, USA</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Lipo Wang</td>
+                                <td>NTU Singapore (Neural Networks)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Reviewer Committee Table -->
+                <div class="committee-table-container">
+                    <h2 class="committee-table-title">Reviewer Committee</h2>
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Prof. (Dr.) Sheshikala Martha</td>
+                                <td>Professor, S.R. University, Warangal</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Krishna Prasad K.</td>
+                                <td>Associate Professor, A J Institute of Engineering and Technology, Mangaluru</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Balaso Jagdale</td>
+                                <td>Associate Professor, MIT World Peace University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Rajendra G. Pawar</td>
+                                <td>Associate Professor, School of Computing, MIT ADT University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Vijaya Kumar A. V.</td>
+                                <td>Professor, Presidency University, Bengaluru</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Nilesh Bhosle</td>
+                                <td>Associate Professor, NIMS Institute of Engineering and Technology, NIMS University Rajasthan, Jaipur</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Mukund B. Wagh</td>
+                                <td>Professor, MIT ADT University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Chudaman D. Sukte</td>
+                                <td>Assistant Professor, Vishwakarma Institute of Information Technology, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Geetha A</td>
+                                <td>Associate Professor, Presidency University, Bengaluru</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. A. G. Thakur</td>
+                                <td>Professor, Bharati Vidyapeeth (Deemed to be University), Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Sunny B. Mohite</td>
+                                <td>Associate Professor, D. Y. Patil College of Engineering and Technology</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Yogesh R. Kulkarni</td>
+                                <td>Assistant Professor, MIT World Peace University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Krishna Kumar L.</td>
+                                <td>Professor, Annasaheb Dange College of Engineering and Technology, Ashta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Editorial Committee Table -->
+                <div class="committee-table-container">
+                    <h2 class="committee-table-title">Editorial Committee</h2>
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Shashikant Patil</td>
+                                <td>Professor, Atlas SkillTech University, Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Mahavir Devmane</td>
+                                <td>Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Pradip Mane</td>
+                                <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anagha Dhawalikar</td>
+                                <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Ankush Pawar</td>
+                                <td>Associate Professor, ViMEET, Khalapur, Navi Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. A. Y. Shete</td>
+                                <td>Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Gayatri Bachhav</td>
+                                <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Shankar Patil</td>
+                                <td>Associate Professor, IG College of Engineering, Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Balasaheb Balkhande</td>
+                                <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+    </div>
+
+    <script src="js/components.js"></script>
+</body>
+</html>
