@@ -130,10 +130,12 @@ const footerHTML = `
                 <h2>Quick Links</h2>
                 <ul>
                     <li><a href="committee.html"><i class="fa fa-angle-right"></i>Committee</a></li>
+                    <li><a href="registration.html"><i class="fa fa-angle-right"></i>Registration</a></li>
                     <li><a href="submission.html"><i class="fa fa-angle-right"></i>Submission Guidelines</a></li>
                     <li><a href="registered-paper.html"><i class="fa fa-angle-right"></i>Registered Paper</a></li>
                     <li><a href="scope.html"><i class="fa fa-angle-right"></i>Scope of Papers</a></li>
                     <li><a href="venue.html"><i class="fa fa-angle-right"></i>Conference Venue</a></li>
+                    <li><a href="contact.html"><i class="fa fa-angle-right"></i>Contact Us</a></li>
                 </ul>
             </div>
             
