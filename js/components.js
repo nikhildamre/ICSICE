@@ -82,7 +82,7 @@ const headerHTML = `
             <nav class="main-navigation" role="navigation" aria-label="Primary Menu">
                 <div class="main-navbar">
                     <div class="menu-home-container">
-                        <ul class="menu">
+                        <ul class="menu" id="main-menu">
                             <li class="menu-item nav-item">
                                 <a href="committee.html" class="nav-link navbar-box">COMMITTEE</a>
                             </li>
@@ -216,10 +216,33 @@ const ICSICE = {
         if (headerElement) {
             headerElement.innerHTML = headerHTML;
             console.log("Header injected");
+            
+            // Add HOME link if not on home page
+            this.addHomeLink();
         }
         
         if (footerElement) {
             footerElement.innerHTML = footerHTML;
+        }
+    },
+    
+    // Add HOME link to navigation if not on home page
+    addHomeLink: function() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const isHomePage = currentPage === '' || currentPage === 'index.html';
+        
+        if (!isHomePage) {
+            const mainMenu = document.getElementById('main-menu');
+            if (mainMenu) {
+                // Create HOME link
+                const homeItem = document.createElement('li');
+                homeItem.className = 'menu-item nav-item';
+                homeItem.innerHTML = '<a href="index.html" class="nav-link navbar-box">HOME</a>';
+                
+                // Insert at the beginning
+                mainMenu.insertBefore(homeItem, mainMenu.firstChild);
+                console.log("HOME link added to navigation");
+            }
         }
     },
     
