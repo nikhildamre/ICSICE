@@ -51,7 +51,9 @@ const headerHTML = `
             <!-- College Logo and Name -->
             <div class="college-info">
                 <img src="assets/clg logo.png" alt="Vasantdada Patil Pratishthan's College of Engineering & Visual Arts" 
-                     class="college-logo">
+                     class="college-logo college-logo-desktop">
+                <img src="assets/clg logo.jpeg" alt="Vasantdada Patil Pratishthan's College of Engineering & Visual Arts" 
+                     class="college-logo college-logo-mobile">
             </div>
         </div>
     </div>
