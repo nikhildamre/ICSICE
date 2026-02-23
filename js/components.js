@@ -53,14 +53,6 @@ const headerHTML = `
                 <img src="assets/clg logo.png" alt="Vasantdada Patil Pratishthan's College of Engineering & Visual Arts" 
                      class="college-logo">
             </div>
-            <!-- Social Media Links -->
-            <div class="social-links">
-                <span>Follow Us:</span>
-                <a href="https://www.facebook.com/Vasantdadapatilpratishthancollege" target="_blank" class="social-link"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/company/vasantdada-patil-college/" target="_blank" class="social-link"><i class="fa fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/vasantdadapatilcollege/" target="_blank" class="social-link"><i class="fa fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@pvppcoemumbai3334" target="_blank" class="social-link"><i class="fa fa-youtube"></i></a>
-            </div>
         </div>
     </div>
 </div>
