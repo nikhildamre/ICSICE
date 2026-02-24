@@ -201,7 +201,7 @@
             border-radius: 8px;
             border: 2px solid #ddd;
             padding: 0;
-            overflow: visible;
+            overflow-x: auto;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -224,6 +224,7 @@
             background: white;
             border: none;
             margin: 0;
+            table-layout: auto;
         }
 
         .committee-table thead {
@@ -249,20 +250,24 @@
             line-height: 1.5;
             word-wrap: break-word;
             white-space: normal;
-            overflow: visible;
+            overflow: hidden;
+            max-width: 0;
         }
 
         .committee-table td:first-child {
             color: #1552ca;
             font-weight: 600;
-            width: 30%;
+            width: 20% !important;
+            white-space: nowrap !important;
         }
 
         .committee-table td:last-child {
             color: #333;
-            width: 70%;
+            width: 80% !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
         }
-
         .committee-table tbody tr:hover {
             background-color: #f8f9ff;
         }
