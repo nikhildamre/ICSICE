@@ -79,11 +79,21 @@
         }
 
         .committee-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             margin-bottom: 50px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Single card centering */
+        .committee-cards.single-card {
+            display: flex;
+            justify-content: center;
+            max-width: 350px;
+            margin: 0 auto 50px auto;
         }
 
         /* Individual Committee Cards */
@@ -98,7 +108,6 @@
             overflow: hidden;
             min-height: 500px !important;
             width: 100% !important;
-            max-width: 350px !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
@@ -263,6 +272,20 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .committee-cards {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .committee-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .page-title h1 {
                 font-size: 2rem;
@@ -275,6 +298,7 @@
             }
 
             .committee-cards {
+                grid-template-columns: 1fr;
                 gap: 20px;
             }
 
@@ -282,6 +306,7 @@
                 max-width: 350px;
                 min-height: 450px;
                 padding: 20px 15px;
+                margin: 0 auto;
             }
 
             .card-image {
@@ -389,13 +414,7 @@
                                 <div class="card-designation">General Secretary<br><br>Vasantdada Patil Pratishthan</div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Patron Section -->
-                <div class="section-container">
-                    <h2 class="section-header">Patron</h2>
-                    <div class="committee-cards">
+                        
                         <div class="committee-card">
                             <div class="card-image">
                                 <img src="assets/committee/Prof. Ashok Chavan.jpeg" alt="Prof. Ashok Chavan">
@@ -405,7 +424,14 @@
                                 <div class="card-designation">Campus Director<br><br>Vasantdada Patil Pratishthan</div>
                             </div>
                         </div>
-                        
+                    </div>
+                </div>
+                
+
+                <!-- Patron Section -->
+                <div class="section-container">
+                    <h2 class="section-header">Patron</h2>
+                    <div class="committee-cards">
                         <div class="committee-card">
                             <div class="card-image">
                                 <img src="assets/committee/Dr. Alam N. Shaikh.png" alt="Dr. Alam N. Shaikh">
@@ -451,7 +477,7 @@
                 <!-- Conference Convener Section -->
                 <div class="section-container">
                     <h2 class="section-header">Conference Convener</h2>
-                    <div class="committee-cards">
+                    <div class="committee-cards single-card">
                         <div class="committee-card">
                             <div class="card-image">
                                 <img src="assets/committee/Dr. Rais A. Mulla.jpg" alt="Dr. Rais A. Mulla">
@@ -510,10 +536,6 @@
                             <tr>
                                 <td>Dr. Shashikant Patil</td>
                                 <td>Professor, Atlas SkillTech University, Mumbai</td>
-                            </tr>
-                            <tr>
-                                <td>Dr. Gayatri Bachhav</td>
-                                <td>Dean, Academics, VPPCOE & VA, Sion–Mumbai</td>
                             </tr>
                             <tr>
                                 <td>Dr. Vedika Avhad </td>
