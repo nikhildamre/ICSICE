@@ -81,10 +81,10 @@ const headerHTML = `
                                 <a href="committee.html" class="nav-link navbar-box">COMMITTEE</a>
                             </li>
                             <li class="menu-item nav-item">
-                                <a href="registration.html" class="nav-link navbar-box">REGISTRATION</a>
+                                <a href="submission.html" class="nav-link navbar-box">SUBMISSION GUIDELINES</a>
                             </li>
                             <li class="menu-item nav-item">
-                                <a href="submission.html" class="nav-link navbar-box">SUBMISSION GUIDELINES</a>
+                                <a href="registration.html" class="nav-link navbar-box">REGISTRATION</a>
                             </li>
                             <li class="menu-item nav-item">
                                 <a href="registered-paper.html" class="nav-link navbar-box">REGISTERED PAPER</a>
