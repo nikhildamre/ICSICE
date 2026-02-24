@@ -141,7 +141,7 @@ const footerHTML = `
                         <strong><i class="fa fa-map-marker" style="color: #aedfffff; margin-right: 8px;"></i>Vasantdada Patil Educational Complex</strong>
                     </p>
                     <p style="margin-bottom: 15px; line-height: 1.6; color: #cccccc;">
-                        Eastern Express Highway, Sion, Mumbai, Maharashtra 400022
+                        Vasantdada patil, Eastern Express Hwy, near Everard Nagar, Rahul Nagar, Chunabhatti, Sion, Mumbai, Maharashtra 400022.
                     </p>
                     <p style="margin-top: 15px;">
                         <strong style="color: #ffd700;"><i class="fa fa-desktop" style="color: #aedfffff; margin-right: 8px;"></i>Mode: Online / Offline</strong>
