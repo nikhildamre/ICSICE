@@ -453,9 +453,35 @@
                 padding: 15px;
             }
         }
+
+        html {
+  scroll-behavior: smooth;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: #A3FF00;
+  color: #0f1115;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.scroll-top:hover {
+  transform: translateY(-5px);
+}
     </style>
 </head>
-<body>
+<body id="top">
     <!-- HEADER -->
     <div id="header"></div>
 
@@ -626,5 +652,8 @@
 
     <!-- Load Components -->
     <script src="js/components.js"></script>
+<a href="#top" class="scroll-top">
+   <i class="fa-solid fa-arrow-up"></i>
+</a>
 </body>
 </html>
