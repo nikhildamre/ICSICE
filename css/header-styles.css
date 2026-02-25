@@ -1,13 +1,13 @@
 /* Top Header Bar Styling */
-.top-header-bar {
+/* .top-header-bar {
     background: #1552ca;
     color: white;
     padding: 0;
     position: sticky;
     top: 0;
     z-index: 100000;
-}
-
+} */
+/* 
 .top-header-content {
     display: flex;
     justify-content: flex-start;
@@ -17,9 +17,9 @@
     margin: 0;
     padding: 0;
     border: none;
-}
+} */
 
-.college-info {
+/* .college-info {
     display: flex;
     align-items: center;
     gap: 0;
@@ -28,9 +28,9 @@
     margin: 0;
     padding: 0;
     border: none;
-}
+} */
 
-.college-logo {
+/* .college-logo {
     height: 140px;
     width: 100%;
     max-width: 100%;
@@ -40,39 +40,39 @@
     padding: 0;
     border: none;
     display: block;
-}
+} */
 
 /* Desktop logo - show only on screens > 1359px */
-.college-logo-desktop {
+/* .college-logo-desktop {
     display: block;
-}
+} */
 
 /* Mobile logo - hide on desktop */
-.college-logo-mobile {
+/* .college-logo-mobile {
     display: none;
-}
+} */
 
-.college-text {
+/* .college-text {
     display: flex;
     flex-direction: column;
     line-height: 1.2;
-}
+} */
 
-.college-name {
+/* .college-name {
     font-size: 1rem;
     font-weight: 700;
     color: white;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
+} */
 
-.college-subtitle {
+/* .college-subtitle {
     font-size: 0.85rem;
     font-weight: 400;
     color: #ccebff;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-}
+} */
 
 .social-links {
     display: flex;

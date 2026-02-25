@@ -2,60 +2,95 @@
 
 // Clean mobile menu toggle function - GLOBAL
 function toggleMenu() {
-    console.log("Toggle clicked");
-    const nav = document.querySelector('.main-navigation');
-    const toggle = document.querySelector('.mobile-menu-toggle');
-    
-    console.log("Nav found:", !!nav);
-    console.log("Toggle found:", !!toggle);
-    
-    if (!nav || !toggle) {
-        console.log("Nav or toggle not found");
-        return;
-    }
-    
-    // Check current state
-    const isOpen = nav.classList.contains('mobile-menu-open');
-    console.log("Menu currently open:", isOpen);
-    
-    if (isOpen) {
-        // Close menu
-        nav.classList.remove('mobile-menu-open');
-        toggle.classList.remove('active');
-        console.log("Menu closed");
-    } else {
-        // Open menu
-        nav.classList.add('mobile-menu-open');
-        toggle.classList.add('active');
-        console.log("Menu opened");
-    }
-    
-    // Verify final state
-    console.log("Final state - Nav has mobile-menu-open:", nav.classList.contains('mobile-menu-open'));
-    
-    // DEBUG: Check computed styles
-    const computedStyle = window.getComputedStyle(nav);
-    console.log("Computed display:", computedStyle.display);
-    console.log("Computed visibility:", computedStyle.visibility);
-    console.log("Computed opacity:", computedStyle.opacity);
-    console.log("Computed position:", computedStyle.position);
-    console.log("Computed z-index:", computedStyle.zIndex);
+  console.log("Toggle clicked");
+  const nav = document.querySelector(".main-navigation");
+  const toggle = document.querySelector(".mobile-menu-toggle");
+
+  console.log("Nav found:", !!nav);
+  console.log("Toggle found:", !!toggle);
+
+  if (!nav || !toggle) {
+    console.log("Nav or toggle not found");
+    return;
+  }
+
+  // Check current state
+  const isOpen = nav.classList.contains("mobile-menu-open");
+  console.log("Menu currently open:", isOpen);
+
+  if (isOpen) {
+    // Close menu
+    nav.classList.remove("mobile-menu-open");
+    toggle.classList.remove("active");
+    console.log("Menu closed");
+  } else {
+    // Open menu
+    nav.classList.add("mobile-menu-open");
+    toggle.classList.add("active");
+    console.log("Menu opened");
+  }
+
+  // Verify final state
+  console.log(
+    "Final state - Nav has mobile-menu-open:",
+    nav.classList.contains("mobile-menu-open"),
+  );
+
+  // DEBUG: Check computed styles
+  const computedStyle = window.getComputedStyle(nav);
+  console.log("Computed display:", computedStyle.display);
+  console.log("Computed visibility:", computedStyle.visibility);
+  console.log("Computed opacity:", computedStyle.opacity);
+  console.log("Computed position:", computedStyle.position);
+  console.log("Computed z-index:", computedStyle.zIndex);
 }
 
 // Header HTML template
 const headerHTML = `
 <!-- Top Header Bar with College Info and Social Links -->
+
 <div class="top-header-bar">
-    <div class="container">
-        <div class="top-header-content">
-            <!-- College Logo and Name -->
-            <div class="college-info">
-                <img src="assets/clg logo.png" alt="Vasantdada Patil Pratishthan's College of Engineering & Visual Arts" 
-                     class="college-logo college-logo-desktop">
-                <img src="assets/clg logo.jpeg" alt="Vasantdada Patil Pratishthan's College of Engineering & Visual Arts" 
-                     class="college-logo college-logo-mobile">
-            </div>
+    <div class="header-inner">
+
+        <!-- LEFT LOGO -->
+        <div class="header-left">
+            <img src="assets/clg-logo.png" class="clg-logo">
         </div>
+
+        <!-- CENTER CONTENT -->
+        <div class="header-center">
+
+            <h1>
+                VASANTDADA PATIL PRATISHTHAN'S COLLEGE OF ENGINEERING AND VISUAL ARTS
+            </h1>
+
+
+            <!-- NBA + TEXT + NAAC -->
+            <div class="accreditation-row">
+
+                <img src="assets/nba-logo.png" class="nba-logo">
+
+                <div class="accreditation-text">
+
+                            <p>
+                TRUST REGD. NO. F. 6736 (MUMBAI) ISO 9001:2015 Certified Institute
+            </p>
+
+
+                    <span>
+                        NBA ACCREDITED COURSES: COMP. ENGG. / I.T.  ( Dated 01/07/2024 to 30/06/2027 )
+                    </span>
+                             <p> NAAC ACCREDITED with “A” Grade </p>
+                </div>
+
+                <img src="assets/naac-logo.png" class="naac-logo">
+
+            </div>
+
+   
+
+        </div>
+
     </div>
 </div>
 
@@ -184,168 +219,183 @@ const footerHTML = `
             <p>&copy; 2026 ICSICE Conference | Website by <strong style="color: #ffd700;">moment-capturers</strong></p>
         </div>
     </div>
+                    <a href="#top" class="scroll-top">
+                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+                </a>
 </footer>
 `;
 
 // Main ICSICE object
 const ICSICE = {
-    // Initialize components
-    init: function() {
-        this.loadHeaderFooter();
-        this.setupNavigation();
-        this.setupAnimations();
-        
-        // Setup mobile menu after a short delay to ensure header is injected
-        setTimeout(() => {
-            this.setupMobileMenu();
-            this.setupActiveNavigation();
-        }, 150);
-    },
-    
-    // Load header and footer
-    loadHeaderFooter: function() {
-        const headerElement = document.getElementById('header');
-        const footerElement = document.getElementById('footer');
-        
-        if (headerElement) {
-            headerElement.innerHTML = headerHTML;
-            console.log("Header injected");
-            
-            // Add HOME link if not on home page
-            this.addHomeLink();
-        }
-        
-        if (footerElement) {
-            footerElement.innerHTML = footerHTML;
-        }
-    },
-    
-    // Add HOME link to navigation if not on home page
-    addHomeLink: function() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const isHomePage = currentPage === '' || currentPage === 'index.html';
-        
-        if (!isHomePage) {
-            const mainMenu = document.getElementById('main-menu');
-            if (mainMenu) {
-                // Create HOME link
-                const homeItem = document.createElement('li');
-                homeItem.className = 'menu-item nav-item';
-                homeItem.innerHTML = '<a href="index.html" class="nav-link navbar-box">HOME</a>';
-                
-                // Insert at the beginning
-                mainMenu.insertBefore(homeItem, mainMenu.firstChild);
-                console.log("HOME link added to navigation");
-            }
-        }
-    },
-    
-    // Navigation setup
-    setupNavigation: function() {
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    },
-    
-    // Mobile menu setup
-    setupMobileMenu: function() {
-        // This function is called AFTER header injection, so elements should exist
-        const hamburger = document.querySelector('.mobile-menu-toggle');
-        const navigation = document.querySelector('.main-navigation');
-        
-        if (!hamburger || !navigation) {
-            console.log("Mobile menu elements not found in setupMobileMenu");
-            return;
-        }
-        
-        // Close mobile menu when clicking on a navigation link
-        const navLinks = document.querySelectorAll('.navbar-box');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navigation.classList.remove('mobile-menu-open');
-                hamburger.classList.remove('active');
-                console.log("Menu closed by nav link click");
-            });
-        });
-        
-        // Close mobile menu when clicking outside (but NOT on hamburger)
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = navigation.contains(event.target);
-            const isClickOnHamburger = hamburger.contains(event.target);
-            
-            if (!isClickInsideNav && !isClickOnHamburger && navigation.classList.contains('mobile-menu-open')) {
-                navigation.classList.remove('mobile-menu-open');
-                hamburger.classList.remove('active');
-                console.log("Menu closed by outside click");
-            }
-        });
-    },
-    
-    // Active navigation highlighting
-    setupActiveNavigation: function() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navItems = document.querySelectorAll('.navbar-box');
-        
-        navItems.forEach(item => {
-            const href = item.getAttribute('href');
-            if (href === currentPage || 
-                (currentPage === '' && href === 'index.html') ||
-                (currentPage === 'index.html' && href === 'index.html')) {
-                item.classList.add('active');
-            }
-        });
-    },
-    
-    // Animation setup
-    setupAnimations: function() {
-        // Fade in animations for content sections
-        const sections = document.querySelectorAll('section, .content-section');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        
-        sections.forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-    },
-    
-    // Utility function to handle image loading errors
-    handleImageError: function(img) {
-        const fallback = img.nextElementSibling;
-        if (fallback) {
-            img.style.display = 'none';
-            fallback.style.display = 'flex';
-        }
+  // Initialize components
+  init: function () {
+    this.loadHeaderFooter();
+    this.setupNavigation();
+    this.setupAnimations();
+
+    // Setup mobile menu after a short delay to ensure header is injected
+    setTimeout(() => {
+      this.setupMobileMenu();
+      this.setupActiveNavigation();
+    }, 150);
+  },
+
+  // Load header and footer
+  loadHeaderFooter: function () {
+    const headerElement = document.getElementById("header");
+    const footerElement = document.getElementById("footer");
+
+    if (headerElement) {
+      headerElement.innerHTML = headerHTML;
+      console.log("Header injected");
+
+      // Add HOME link if not on home page
+      this.addHomeLink();
     }
+
+    if (footerElement) {
+      footerElement.innerHTML = footerHTML;
+    }
+  },
+
+  // Add HOME link to navigation if not on home page
+  addHomeLink: function () {
+    const currentPage =
+      window.location.pathname.split("/").pop() || "index.html";
+    const isHomePage = currentPage === "" || currentPage === "index.html";
+
+    if (!isHomePage) {
+      const mainMenu = document.getElementById("main-menu");
+      if (mainMenu) {
+        // Create HOME link
+        const homeItem = document.createElement("li");
+        homeItem.className = "menu-item nav-item";
+        homeItem.innerHTML =
+          '<a href="index.html" class="nav-link navbar-box">HOME</a>';
+
+        // Insert at the beginning
+        mainMenu.insertBefore(homeItem, mainMenu.firstChild);
+        console.log("HOME link added to navigation");
+      }
+    }
+  },
+
+  // Navigation setup
+  setupNavigation: function () {
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+  },
+
+  // Mobile menu setup
+  setupMobileMenu: function () {
+    // This function is called AFTER header injection, so elements should exist
+    const hamburger = document.querySelector(".mobile-menu-toggle");
+    const navigation = document.querySelector(".main-navigation");
+
+    if (!hamburger || !navigation) {
+      console.log("Mobile menu elements not found in setupMobileMenu");
+      return;
+    }
+
+    // Close mobile menu when clicking on a navigation link
+    const navLinks = document.querySelectorAll(".navbar-box");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        navigation.classList.remove("mobile-menu-open");
+        hamburger.classList.remove("active");
+        console.log("Menu closed by nav link click");
+      });
+    });
+
+    // Close mobile menu when clicking outside (but NOT on hamburger)
+    document.addEventListener("click", function (event) {
+      const isClickInsideNav = navigation.contains(event.target);
+      const isClickOnHamburger = hamburger.contains(event.target);
+
+      if (
+        !isClickInsideNav &&
+        !isClickOnHamburger &&
+        navigation.classList.contains("mobile-menu-open")
+      ) {
+        navigation.classList.remove("mobile-menu-open");
+        hamburger.classList.remove("active");
+        console.log("Menu closed by outside click");
+      }
+    });
+  },
+
+  // Active navigation highlighting
+  setupActiveNavigation: function () {
+    const currentPage =
+      window.location.pathname.split("/").pop() || "index.html";
+    const navItems = document.querySelectorAll(".navbar-box");
+
+    navItems.forEach((item) => {
+      const href = item.getAttribute("href");
+      if (
+        href === currentPage ||
+        (currentPage === "" && href === "index.html") ||
+        (currentPage === "index.html" && href === "index.html")
+      ) {
+        item.classList.add("active");
+      }
+    });
+  },
+
+  // Animation setup
+  setupAnimations: function () {
+    // Fade in animations for content sections
+    const sections = document.querySelectorAll("section, .content-section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    );
+
+    sections.forEach((section) => {
+      section.style.opacity = "0";
+      section.style.transform = "translateY(20px)";
+      section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      observer.observe(section);
+    });
+  },
+
+  // Utility function to handle image loading errors
+  handleImageError: function (img) {
+    const fallback = img.nextElementSibling;
+    if (fallback) {
+      img.style.display = "none";
+      fallback.style.display = "flex";
+    }
+  },
 };
 
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM loaded, initializing ICSICE...");
-    ICSICE.init();
-    
-    // Make toggleMenu globally available
-    window.toggleMenu = toggleMenu;
-    console.log("toggleMenu made global");
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM loaded, initializing ICSICE...");
+  ICSICE.init();
+
+  // Make toggleMenu globally available
+  window.toggleMenu = toggleMenu;
+  console.log("toggleMenu made global");
 });
