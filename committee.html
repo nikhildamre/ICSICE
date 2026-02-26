@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Committee - ICSICE 2026</title>
-        <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzE1NTJjYSIvPgo8cGF0aCBkPSJNOCAyMGg0djRIOHYtNHptNiAwaDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04IDE2aDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04IDEyaDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCA4aDEydjJIMTBWOHoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/header-styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Committee Page Specific Styles -->
-        <style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee - ICSICE 2026</title>
+    <link rel="icon" type="image/x-icon"
+        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0iIzE1NTJjYSIvPgo8cGF0aCBkPSJNOCAyMGg0djRIOHYtNHptNiAwaDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04IDE2aDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik04IDEyaDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHptNiAwaDR2NGgtNHYtNHoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMCA4aDEydjJIMTBWOHoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Committee Page Specific Styles -->
+    <style>
         /* Committee Page Enhancements */
         body {
             background: #f8f9fa !important;
@@ -86,7 +88,12 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
+
+        .patron-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+
         /* Single card centering */
         .committee-cards.single-card {
             display: flex;
@@ -147,7 +154,7 @@
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            object-position: center !important;
+            object-position: top !important;
             transition: all 0.3s ease !important;
             border-radius: 15px !important;
         }
@@ -269,6 +276,7 @@
             word-wrap: break-word !important;
             overflow-wrap: break-word !important;
         }
+
         .committee-table tbody tr:hover {
             background-color: #f8f9ff;
         }
@@ -284,14 +292,14 @@
                 gap: 25px;
             }
         }
-        
+
         @media (max-width: 900px) {
             .committee-cards {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
         }
-        
+
         @media (max-width: 768px) {
             .page-title h1 {
                 font-size: 2rem;
@@ -306,6 +314,10 @@
             .committee-cards {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+
+            .patron-grid {
+                grid-template-columns: 1fr !important;
             }
 
             .committee-card {
@@ -338,6 +350,11 @@
             .committee-table td {
                 padding: 12px 15px;
                 font-size: 0.9rem;
+            }
+
+            .committee-table td:first-child {
+                width: 54% !important;
+                padding-left: 30px !important;
             }
         }
 
@@ -373,410 +390,432 @@
                 font-size: 0.85rem;
             }
         }
-        </style>
-    </head>
-    <body id="top">
-        <div id="page" class="site-wrapper">
-            <div id="header"></div>
-            <main id="primary" class="site-main">
-                <!-- Page Title -->
-                <section class="page-title">
-                    <h1>Committee</h1>
-                </section>
-                <!-- Committee Content -->
-                <div class="committee-section">
-                    <!-- Chief Patron Section -->
-                    <div class="section-container">
-                        <h2 class="section-header">Chief Patron</h2>
-                        <div class="committee-cards">
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Shri. Nandkumar M. Katkar.jpg" alt="Shri. Nandkumar M. Katkar">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Shri. Nandkumar M. Katkar</h3>
-                                    <div class="card-designation">
-                                        President
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan
-                                    </div>
-                                </div>
+    </style>
+</head>
+
+<body id="top">
+    <div id="page" class="site-wrapper">
+        <div id="header"></div>
+        <main id="primary" class="site-main">
+            <!-- Page Title -->
+            <section class="page-title">
+                <h1>Committee</h1>
+            </section>
+            <!-- Committee Content -->
+            <div class="committee-section">
+                <!-- Chief Patron Section -->
+                <div class="section-container">
+                    <h2 class="section-header">Chief Patron</h2>
+                    <div class="committee-cards">
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Shri. Nandkumar M. Katkar.jpg"
+                                    alt="Shri. Nandkumar M. Katkar">
                             </div>
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Shri. Ravindra Ghorpade.jpg" alt="Shri. Ravindra Ghorpade">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Shri. Ravindra Ghorpade</h3>
-                                    <div class="card-designation">
-                                        Vice President
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Adv. Shri. Appasaheb S. Desai.png" alt="Adv. Shri. Appasaheb S. Desai">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Adv. Shri. Appasaheb S. Desai</h3>
-                                    <div class="card-designation">
-                                        General Secretary
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Prof. Ashok Chavan.jpeg" alt="Prof. Ashok Chavan">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Dr. Ashok Chavan</h3>
-                                    <div class="card-designation">
-                                        Campus Director
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan
-                                    </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Shri. Nandkumar M. Katkar</h3>
+                                <div class="card-designation">
+                                    President
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Patron Section -->
-                    <div class="section-container">
-                        <h2 class="section-header">Patron</h2>
-                        <div class="committee-cards">
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Dr. Alam N. Shaikh.png" alt="Dr. Alam N. Shaikh">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Dr. Alam N. Shaikh</h3>
-                                    <div class="card-designation">
-                                        Principal
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts
-                                    </div>
-                                </div>
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Shri. Ravindra Ghorpade.jpg" alt="Shri. Ravindra Ghorpade">
                             </div>
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Dr. Pravin H. Yadav.jpg" alt="Dr. Pravin H. Yadav">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Dr. Pravin H. Yadav</h3>
-                                    <div class="card-designation">
-                                        Vice Principal
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Mr. Varun Desai.jpg" alt="Mr. Varun Desai">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Mr. Varun Desai</h3>
-                                    <div class="card-designation">
-                                        Registrar
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Swapnil Desai.jpg" alt="Dr. Swapnil Desai">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Dr. Swapnil Desai</h3>
-                                    <div class="card-designation">
-                                        Training and Placement Officer
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts
-                                    </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Shri. Ravindra Ghorpade</h3>
+                                <div class="card-designation">
+                                    Vice President
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Conference Convener Section -->
-                    <div class="section-container">
-                        <h2 class="section-header">Conference Convener</h2>
-                        <div class="committee-cards single-card">
-                            <div class="committee-card">
-                                <div class="card-image">
-                                    <img src="assets/committee/Dr. Rais A. Mulla.jpg" alt="Dr. Rais A. Mulla">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-name">Dr. Rais A. Mulla</h3>
-                                    <div class="card-designation">
-                                        Associate Professor, Head of Computer Engineering Department
-                                        <br>
-                                        <br>
-                                        Vasantdada Patil Pratishthan's College Of Engineering & Visual Arts
-                                    </div>
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Adv. Shri. Appasaheb S. Desai.png"
+                                    alt="Adv. Shri. Appasaheb S. Desai">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Adv. Shri. Appasaheb S. Desai</h3>
+                                <div class="card-designation">
+                                    General Secretary
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- National Advisory Committee Table -->
-                    <div class="committee-table-container">
-                        <h2 class="committee-table-title">National Advisory Committee</h2>
-                        <table class="committee-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Affiliation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Dr. A.K. Gupta</td>
-                                    <td>Vice Chancellor, DYP-ATU, Kolhapur</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Satyanarayana Reddy</td>
-                                    <td>Vice Chancellor, Srinivas University, Mangaluru</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Ramchandra V. Pujeri</td>
-                                    <td>Pro Vice Chancellor, MIT ADT University, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Gomathi N.</td>
-                                    <td>Professor,  Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Avadi, Chennai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Chandra Prakash</td>
-                                    <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Amolkumar Jadhav</td>
-                                    <td>Associate Professor (CSE), D. Y. Patil College of Engineering and Technology</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Alok Kumar</td>
-                                    <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Anirban Bhattacharjee</td>
-                                    <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Shashikant Patil</td>
-                                    <td>Professor, Atlas SkillTech University, Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Vedika Avhad</td>
-                                    <td>Dean R & D, VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Rajesh Morey</td>
-                                    <td>Dean Admin, VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Suvarna Bhise</td>
-                                    <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Ankush Pawar</td>
-                                    <td>Associate Professor, ViMEET, Khalapur, Navi Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Jagannath E. Nalavade</td>
-                                    <td>Department of Computer Science and Engineering, MIT Art, Design and Technology University, Pune, Maharashtra, India</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Deepak S. Dharrao</td>
-                                    <td>Associate Professor, Symbiosis University, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Yogesh Mali</td>
-                                    <td>Dean – Research, Ajeenkya D Y Patil University, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Pramod A. Jadhav</td>
-                                    <td>Associate Professor, Bharati Vidyapeeth (Deemed to be University), College of Engineering, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Gnanaprakasam Thankavel</td>
-                                    <td>Alliance University, Bangalore</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- International Advisory Committee Table -->
-                    <div class="committee-table-container">
-                        <h2 class="committee-table-title">International Advisory Committee</h2>
-                        <table class="committee-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Affiliation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Dr. Seyedali Mirjalili</td>
-                                    <td>Professor, Director, Editor, Data Scientist, Torrens University, Australia</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Parag Kulkarni</td>
-                                    <td>Professor, Institute for International Strategy, Tokyo International University, Japan</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Anupam Joshi</td>
-                                    <td>University of Maryland, USA (AI & IoT)</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Anand Soni</td>
-                                    <td>School of Business, Kingdom of Bahrain</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Vidya Badrinarayanan</td>
-                                    <td>Nanyang Technological University, Singapore</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Dwivedi Amit</td>
-                                    <td>University of Warwick, United Kingdom</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Schahram Dustdar</td>
-                                    <td>TU Wien, Austria (Distributed Systems)</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. San Murugesan</td>
-                                    <td>Western Sydney University, Australia</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Sameer S. Sonkusale</td>
-                                    <td>Tufts University, USA</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Lipo Wang</td>
-                                    <td>NTU Singapore (Neural Networks)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Reviewer Committee Table -->
-                    <div class="committee-table-container">
-                        <h2 class="committee-table-title">Reviewer Committee</h2>
-                        <table class="committee-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Affiliation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Prof. (Dr.) Sheshikala Martha</td>
-                                    <td>Professor, S.R. University, Warangal</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Krishna Prasad K.</td>
-                                    <td>Associate Professor, A J Institute of Engineering and Technology, Mangaluru</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Balaso Jagdale</td>
-                                    <td>Associate Professor, MIT World Peace University, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Rajendra G. Pawar</td>
-                                    <td>Associate Professor, School of Computing, MIT ADT University, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Vijaya Kumar A. V.</td>
-                                    <td>Professor, Presidency University, Bengaluru</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Nilesh Bhosle</td>
-                                    <td>Associate Professor, NIMS Institute of Engineering and Technology, NIMS University Rajasthan, Jaipur</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Mukund B. Wagh</td>
-                                    <td>Professor, MIT ADT University, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Chudaman D. Sukte</td>
-                                    <td>Assistant Professor, Vishwakarma Institute of Information Technology, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Geetha A</td>
-                                    <td>Associate Professor, Presidency University, Bengaluru</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. A. G. Thakur</td>
-                                    <td>Professor, Bharati Vidyapeeth (Deemed to be University), Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Sunny B. Mohite</td>
-                                    <td>Associate Professor, D. Y. Patil College of Engineering and Technology</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Yogesh R. Kulkarni</td>
-                                    <td>Assistant Professor, MIT World Peace University, Pune</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Krishna Kumar L.</td>
-                                    <td>Professor, Annasaheb Dange College of Engineering and Technology, Ashta</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Editorial Committee Table -->
-                    <div class="committee-table-container">
-                        <h2 class="committee-table-title">Editorial Committee</h2>
-                        <table class="committee-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Affiliation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Dr. Mahendra Pawar</td>
-                                    <td>Chief Editor (ICSICE-2026), VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Satyamangal Rege</td>
-                                    <td>Dean - Applied Arts, VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Mahavir Devmane</td>
-                                    <td>Professor, VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Pradip Mane</td>
-                                    <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. Anagha Dhawalikar</td>
-                                    <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                                <tr>
-                                    <td>Dr. A. Y. Shete</td>
-                                    <td>Professor, VPPCOE & VA, Sion–Mumbai</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Prof. Ashok Chavan.jpeg" alt="Prof. Ashok Chavan">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Ashok Chavan</h3>
+                                <div class="card-designation">
+                                    Campus Director
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </main>
-            <div id="footer"></div>
-        </div>
-        <script src="js/components.js"></script>
-    </body>
+
+
+                <!-- Conference Chair Section -->
+                <div class="section-container">
+                    <h2 class="section-header">Conference Chair</h2>
+                    <div class="committee-cards single-card">
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Dr. Alam N. Shaikh.png" alt="Dr. Alam N. Shaikh">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Alam N. Shaikh</h3>
+                                <div class="card-designation">
+                                    Principal
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan's College of Engineering & Visual Arts
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Patron Section -->
+                <div class="section-container">
+                    <h2 class="section-header">Patron</h2>
+                    <div class="committee-cards patron-grid">
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Dr. Pravin H. Yadav.jpg" alt="Dr. Pravin H. Yadav">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Pravin H. Yadav</h3>
+                                <div class="card-designation">
+                                    Vice Principal
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan's College of Engineering & Visual Arts
+                                </div>
+                            </div>
+                        </div>
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Mr. Varun Desai.jpg" alt="Mr. Varun Desai">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Mr. Varun Desai</h3>
+                                <div class="card-designation">
+                                    Registrar
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan's College of Engineering & Visual Arts
+                                </div>
+                            </div>
+                        </div>
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Swapnil Desai.jpg" alt="Dr. Swapnil Desai">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Swapnil Desai</h3>
+                                <div class="card-designation">
+                                    Training and Placement Officer
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan's College of Engineering & Visual Arts
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Conference Convener Section -->
+                <div class="section-container">
+                    <h2 class="section-header">Conference Convener</h2>
+                    <div class="committee-cards single-card">
+                        <div class="committee-card">
+                            <div class="card-image">
+                                <img src="assets/committee/Dr. Rais A. Mulla.jpg" alt="Dr. Rais A. Mulla">
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-name">Dr. Rais A. Mulla</h3>
+                                <div class="card-designation">
+                                    Associate Professor, Head of Computer Engineering Department
+                                    <br>
+                                    <br>
+                                    Vasantdada Patil Pratishthan's College of Engineering & Visual Arts
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- National Advisory Committee Table -->
+                <div class="committee-table-container">
+                    <h2 class="committee-table-title">National Advisory Committee</h2>
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. A.K. Gupta</td>
+                                <td>Vice Chancellor, DYP-ATU, Kolhapur</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Satyanarayana Reddy</td>
+                                <td>Vice Chancellor, Srinivas University, Mangaluru</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Ramchandra V. Pujeri</td>
+                                <td>Pro Vice Chancellor, MIT ADT University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Gomathi N.</td>
+                                <td>Professor, Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and
+                                    Technology, Avadi, Chennai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Chandra Prakash</td>
+                                <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Amolkumar Jadhav</td>
+                                <td>Associate Professor (CSE), D. Y. Patil College of Engineering and Technology</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Alok Kumar</td>
+                                <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anirban Bhattacharjee</td>
+                                <td>Assistant Professor, Department of Computer Science and Engineering, SVNIT Surat
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Shashikant Patil</td>
+                                <td>Professor, Atlas SkillTech University, Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Vedika Avhad</td>
+                                <td>Dean R & D, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Rajesh Morey</td>
+                                <td>Dean Admin, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Suvarna Bhise</td>
+                                <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Ankush Pawar</td>
+                                <td>Associate Professor, ViMEET, Khalapur, Navi Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Jagannath E. Nalavade</td>
+                                <td>Department of Computer Science and Engineering, MIT Art, Design and Technology
+                                    University, Pune, Maharashtra, India</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Deepak S. Dharrao</td>
+                                <td>Associate Professor, Symbiosis University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Yogesh Mali</td>
+                                <td>Dean – Research, Ajeenkya D Y Patil University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Pramod A. Jadhav</td>
+                                <td>Associate Professor, Bharati Vidyapeeth (Deemed to be University), College of
+                                    Engineering, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Gnanaprakasam Thankavel</td>
+                                <td>Alliance University, Bangalore</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- International Advisory Committee Table -->
+                <div class="committee-table-container">
+                    <h2 class="committee-table-title">International Advisory Committee</h2>
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Seyedali Mirjalili</td>
+                                <td>Professor, Director, Editor, Data Scientist, Torrens University, Australia</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Parag Kulkarni</td>
+                                <td>Professor, Institute for International Strategy, Tokyo International University,
+                                    Japan</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anupam Joshi</td>
+                                <td>University of Maryland, USA (AI & IoT)</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anand Soni</td>
+                                <td>School of Business, Kingdom of Bahrain</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Vidya Badrinarayanan</td>
+                                <td>Nanyang Technological University, Singapore</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Dwivedi Amit</td>
+                                <td>University of Warwick, United Kingdom</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Schahram Dustdar</td>
+                                <td>TU Wien, Austria (Distributed Systems)</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. San Murugesan</td>
+                                <td>Western Sydney University, Australia</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Sameer S. Sonkusale</td>
+                                <td>Tufts University, USA</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Lipo Wang</td>
+                                <td>NTU Singapore (Neural Networks)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Reviewer Committee Table -->
+                <div class="committee-table-container">
+                    <h2 class="committee-table-title">Reviewer Committee</h2>
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Prof. (Dr.) Sheshikala Martha</td>
+                                <td>Professor, S.R. University, Warangal</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Krishna Prasad K.</td>
+                                <td>Associate Professor, A J Institute of Engineering and Technology, Mangaluru</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Balaso Jagdale</td>
+                                <td>Associate Professor, MIT World Peace University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Rajendra G. Pawar</td>
+                                <td>Associate Professor, School of Computing, MIT ADT University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Vijaya Kumar A. V.</td>
+                                <td>Professor, Presidency University, Bengaluru</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Nilesh Bhosle</td>
+                                <td>Associate Professor, NIMS Institute of Engineering and Technology, NIMS University
+                                    Rajasthan, Jaipur</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Mukund B. Wagh</td>
+                                <td>Professor, MIT ADT University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Chudaman D. Sukte</td>
+                                <td>Assistant Professor, Vishwakarma Institute of Information Technology, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Geetha A</td>
+                                <td>Associate Professor, Presidency University, Bengaluru</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. A. G. Thakur</td>
+                                <td>Professor, Bharati Vidyapeeth (Deemed to be University), Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Sunny B. Mohite</td>
+                                <td>Associate Professor, D. Y. Patil College of Engineering and Technology</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Yogesh R. Kulkarni</td>
+                                <td>Assistant Professor, MIT World Peace University, Pune</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Krishna Kumar L.</td>
+                                <td>Professor, Annasaheb Dange College of Engineering and Technology, Ashta</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Editorial Committee Table -->
+                <div class="committee-table-container">
+                    <h2 class="committee-table-title">Editorial Committee</h2>
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Affiliation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dr. Mahendra Pawar</td>
+                                <td>Chief Editor (ICSICE-2026), VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Satyamangal Rege</td>
+                                <td>Dean - Applied Arts, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Mahavir Devmane</td>
+                                <td>Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Pradip Mane</td>
+                                <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. Anagha Dhawalikar</td>
+                                <td>Associate Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                            <tr>
+                                <td>Dr. A. Y. Shete</td>
+                                <td>Professor, VPPCOE & VA, Sion–Mumbai</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <div id="footer"></div>
+    </div>
+    <script src="js/components.js"></script>
+</body>
+
 </html>
